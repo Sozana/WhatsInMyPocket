@@ -18,6 +18,8 @@
 		679F4E8016D9C17100E91BFF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 679F4E7F16D9C17100E91BFF /* Default-568h@2x.png */; };
 		679F4E8316D9C17100E91BFF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */; };
 		679F4E8616D9C17100E91BFF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E8516D9C17100E91BFF /* ViewController.m */; };
+		679F4E8E16D9C44300E91BFF /* CalculateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */; };
+		679F4E9116D9C57200E91BFF /* InputTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E9016D9C57200E91BFF /* InputTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,10 @@
 		679F4E8216D9C17100E91BFF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		679F4E8416D9C17100E91BFF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		679F4E8516D9C17100E91BFF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		679F4E8C16D9C44300E91BFF /* CalculateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateTableViewController.h; sourceTree = "<group>"; };
+		679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateTableViewController.m; sourceTree = "<group>"; };
+		679F4E8F16D9C57200E91BFF /* InputTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputTableCell.h; sourceTree = "<group>"; };
+		679F4E9016D9C57200E91BFF /* InputTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,10 @@
 				679F4E7816D9C17100E91BFF /* AppDelegate.h */,
 				679F4E7916D9C17100E91BFF /* AppDelegate.m */,
 				679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */,
+				679F4E8C16D9C44300E91BFF /* CalculateTableViewController.h */,
+				679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */,
+				679F4E8F16D9C57200E91BFF /* InputTableCell.h */,
+				679F4E9016D9C57200E91BFF /* InputTableCell.m */,
 				679F4E8416D9C17100E91BFF /* ViewController.h */,
 				679F4E8516D9C17100E91BFF /* ViewController.m */,
 				679F4E7016D9C17100E91BFF /* Supporting Files */,
@@ -176,6 +186,8 @@
 				679F4E7616D9C17100E91BFF /* main.m in Sources */,
 				679F4E7A16D9C17100E91BFF /* AppDelegate.m in Sources */,
 				679F4E8616D9C17100E91BFF /* ViewController.m in Sources */,
+				679F4E8E16D9C44300E91BFF /* CalculateTableViewController.m in Sources */,
+				679F4E9116D9C57200E91BFF /* InputTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
