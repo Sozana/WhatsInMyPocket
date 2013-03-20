@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CalculateTableViewController : UITableViewController
+@interface CalculateTableViewController : UITableViewController <UITextFieldDelegate>
 
 @end
