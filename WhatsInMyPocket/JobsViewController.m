@@ -1,41 +1,32 @@
 //
-//  CalculateTableViewController.m
+//  JobsViewController.m
 //  WhatsInMyPocket
 //
-//  Created by sawsan altammar on 2/23/13.
+//  Created by Mattias Burstrom on 3/22/13.
 //  Copyright (c) 2013 sawsan altammar. All rights reserved.
 //
 
-#import "CalculateTableViewController.h"
-#import "InputTableCell.h"
-#import "IIViewDeckController.h"
+#import "JobsViewController.h"
 
+@interface JobsViewController ()
 
-@interface CalculateTableViewController ()
-{
-    NSArray *_data;
-}
 @end
 
-@implementation CalculateTableViewController
+@implementation JobsViewController
 
+- (id)initWithStyle:(UITableViewStyle)style
+{
+    self = [super initWithStyle:style];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    _data = @[@"Job Name",
-              @"Date",
-              @"Monthly Base",
-              @"Number of Months",
-              @"Hours",
-              @"Hoerly Rate",
-              @"Total Wholesale",
-              @"Percentage",
-              @"Yearly Salary",
-              @"After Tax",
-              @"Before Tax",
-              @"Tax Return"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -46,40 +37,30 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // A change :)
-    // another change
-    
-}
-
-- (IBAction)showSelection:(UIBarButtonItem *)sender;
-{
-    [self.viewDeckController toggleRightViewAnimated:YES];
-}
-- (IBAction)showJobs:(UIBarButtonItem *)sender;
-{
-    [self.viewDeckController toggleLeftViewAnimated:YES];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return [_data count];
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"InputCell";
-    InputTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    NSLog(@"row: %@", _data);
-    cell.label.text = [_data objectAtIndex:indexPath.row];
+    static NSString *CellIdentifier = @"Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     // Configure the cell...
     
     return cell;
@@ -135,24 +116,6 @@
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
-}
-
-
-
-
-
-//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;        // return NO to disallow editing.
-//- (void)textFieldDidBeginEditing:(UITextField *)textField;           // became first responder
-//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
-//- (void)textFieldDidEndEditing:(UITextField *)textField;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
-//
-//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
-//
-//- (BOOL)textFieldShouldClear:(UITextField *)textField;               // called when clear button pressed. return NO to ignore (no notifications)
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField;              // called when 'return' key pressed. return NO to ignore.
-{
-    return YES;
 }
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="9Y7-N7-rPd">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="tdi-9c-6YV">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -7,7 +7,7 @@
         <!--Navigation Controller-->
         <scene sceneID="KlR-F6-Wb5">
             <objects>
-                <navigationController definesPresentationContext="YES" id="9Y7-N7-rPd" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="CalculateTableViewController" definesPresentationContext="YES" id="9Y7-N7-rPd" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ROv-Rm-v63">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -18,6 +18,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bpy-su-nVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="13" y="10"/>
+        </scene>
+        <!--Initial View Controller-->
+        <scene sceneID="PZx-47-KwF">
+            <objects>
+                <viewController id="tdi-9c-6YV" customClass="InitialViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JVd-u7-cIy">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cc4-kr-WQK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="160" y="692"/>
         </scene>
         <!--Calculate Table View Controller-->
         <scene sceneID="F35-un-fQ7">
@@ -63,10 +77,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Qxu-Cb-pnP">
-                        <barButtonItem key="leftBarButtonItem" systemItem="save" id="Esj-k0-3cv"/>
-                        <barButtonItem key="rightBarButtonItem" title="Calculate" id="5kJ-9V-tpN">
+                        <barButtonItem key="leftBarButtonItem" title="Jobs" id="Esj-k0-3cv">
                             <connections>
-                                <segue destination="RbI-5S-ohr" kind="push" id="vo9-db-Wns"/>
+                                <action selector="showJobs:" destination="yBs-li-bLX" id="z3W-c4-v2q"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Options" id="5kJ-9V-tpN">
+                            <connections>
+                                <action selector="showSelection:" destination="yBs-li-bLX" id="KXP-YK-Qqg"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -80,7 +98,7 @@
             <objects>
                 <viewController id="RbI-5S-ohr" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HwQ-nb-pmI">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -90,10 +108,102 @@
             </objects>
             <point key="canvasLocation" x="889" y="-14"/>
         </scene>
+        <!--Jobs View Controller - Jobs-->
+        <scene sceneID="ipB-Xu-JA5">
+            <objects>
+                <tableViewController id="laF-RK-dCL" customClass="JobsViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="jUJ-lP-SEk">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="iob-Yl-QNr">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Jobs" id="aWc-r7-kVL"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JPh-Mg-d9Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1129" y="1401"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Kpf-9t-TvN">
+            <objects>
+                <navigationController storyboardIdentifier="JobsViewController" definesPresentationContext="YES" id="Nkh-fn-YsW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6LU-Eg-H0t">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="laF-RK-dCL" kind="relationship" relationship="rootViewController" id="sl4-d5-c9A"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Veq-aI-KMc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="595" y="1401"/>
+        </scene>
+        <!--Selection View Controller - Options-->
+        <scene sceneID="PGo-FZ-Afd">
+            <objects>
+                <tableViewController id="JHa-xb-HJP" customClass="SelectionViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dIF-2O-pFB">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="VHY-JV-yhA">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Options" id="Wgb-6d-XJ0"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rzI-mm-Qxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1138" y="721"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="usM-qj-yi5">
+            <objects>
+                <navigationController storyboardIdentifier="SelectionViewController" definesPresentationContext="YES" id="gk9-RY-B49" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l2U-Ps-Qef">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="JHa-xb-HJP" kind="relationship" relationship="rootViewController" id="1hi-Uj-KmG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bmm-f9-H57" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="604" y="721"/>
+        </scene>
     </scenes>
     <classes>
         <class className="CalculateTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CalculateTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showJobs:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="showSelection:" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="IIViewDeckController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IIViewDeckController.h"/>
+        </class>
+        <class className="InitialViewController" superclassName="IIViewDeckController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialViewController.h"/>
         </class>
         <class className="InputTableCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/InputTableCell.h"/>
@@ -101,6 +211,12 @@
                 <relationship kind="outlet" name="inputField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="label" candidateClass="UILabel"/>
             </relationships>
+        </class>
+        <class className="JobsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobsViewController.h"/>
+        </class>
+        <class className="SelectionViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectionViewController.h"/>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
