@@ -7,6 +7,9 @@
 //
 
 #import "InitialViewController.h"
+#import "CalculateTableViewController.h"
+#import "OptionsViewController.h"
+#import "JobsViewController.h"
 
 @interface InitialViewController ()
 
@@ -25,6 +28,14 @@
                                rightViewController:[storyboard instantiateViewControllerWithIdentifier:@"JobsViewController"]];
         [self setLeftSize:115.0];
         [self setRightSize:115.0];
+        
+        CalculateTableViewController *cvc = (CalculateTableViewController *)[(UINavigationController *)self.centerController topViewController];
+        
+        OptionsViewController *ovc = (OptionsViewController *)[(UINavigationController *)self.leftController topViewController];
+        JobsViewController *jvc = (JobsViewController *)[(UINavigationController *)self.rightController topViewController];
+        NSLog(@"ovc %@", ovc);
+        ovc.delegate = cvc;
+        jvc.delegate = cvc;
     }
     return self;
 }

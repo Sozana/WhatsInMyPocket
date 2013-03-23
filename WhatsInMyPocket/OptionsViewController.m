@@ -30,6 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    NSLog(@"self %@", self);
+    NSLog(@"delegate %@", _delegate);
     
     _data = @[@"Job Name",
               @"Date",
@@ -76,7 +78,6 @@
 {
     static NSString *CellIdentifier = @"OptionTableCell";
     OptionTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    NSLog(@"row: %@", _data);
     cell.label.text = [_data objectAtIndex:indexPath.row];
     //cell.textLabel.text = [_data objectAtIndex:indexPath.row];
     // Configure the cell...
@@ -127,6 +128,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    OptionTableCell *cell = (OptionTableCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [cell toggleSelected];
     
     // Navigation logic may go here. Create and push another view controller.
     /*

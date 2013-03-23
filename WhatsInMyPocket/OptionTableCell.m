@@ -8,6 +8,12 @@
 
 #import "OptionTableCell.h"
 
+@interface OptionTableCell ()
+{
+    BOOL _isSelected;
+}
+
+@end
 @implementation OptionTableCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -22,7 +28,19 @@
 
 - (void)awakeFromNib;
 {
-    self.checkMark.image = [UIImage imageNamed:@"CheckMarkUnchecked"];
+    [self _setImageWithName:@"CheckMarkUnchecked"];
+}
+
+- (void)toggleSelected;
+{
+    _isSelected = !_isSelected;
+    NSString *name = (_isSelected) ? @"CheckMarkChecked" : @"CheckMarkUnchecked";
+    [self _setImageWithName:name];
+}
+
+- (void)_setImageWithName:(NSString *)name;
+{
+    self.checkMark.image = [UIImage imageNamed:name];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

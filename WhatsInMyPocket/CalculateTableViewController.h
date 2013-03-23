@@ -12,4 +12,6 @@
 
 @interface CalculateTableViewController : UITableViewController <UITextFieldDelegate, JobsViewControllerDelegate, OptionsViewControllerDelegate>
 
+@property (nonatomic, weak) IBOutlet OptionsViewController *optionsViewController;
+
 @end
