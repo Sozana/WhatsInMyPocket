@@ -6,13 +6,17 @@
 //  Copyright (c) 2013 sawsan altammar. All rights reserved.
 //
 
-#import "SelectionViewController.h"
+#import "OptionsViewController.h"
+#import "OptionTableCell.h"
+#import "IIViewDeckController.h"
 
-@interface SelectionViewController ()
-
+@interface OptionsViewController ()
+{
+    NSArray *_data;
+}
 @end
 
-@implementation SelectionViewController
+@implementation OptionsViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,10 +30,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    _data = @[@"Job Name",
+              @"Date",
+              @"Monthly Base",
+              @"Number of Months",
+              @"Hours",
+              @"Hoerly Rate",
+              @"Total Wholesale",
+              @"Percentage",
+              @"Yearly Salary",
+              @"After Tax",
+              @"Before Tax",
+              @"Tax Return"];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
- 
+    
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
@@ -37,35 +53,36 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    // A change :)
+    // another change
+    
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [_data count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    static NSString *CellIdentifier = @"OptionTableCell";
+    OptionTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    NSLog(@"row: %@", _data);
+    cell.label.text = [_data objectAtIndex:indexPath.row];
+    //cell.textLabel.text = [_data objectAtIndex:indexPath.row];
     // Configure the cell...
     
     return cell;
 }
-
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,6 +126,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];

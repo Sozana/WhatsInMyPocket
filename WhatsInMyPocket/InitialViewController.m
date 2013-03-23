@@ -17,15 +17,14 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    self = [super initWithCenterViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalculateTableViewController"]
-                            leftViewController:[storyboard instantiateViewControllerWithIdentifier:@"JobsViewController"]
-                           rightViewController:[storyboard instantiateViewControllerWithIdentifier:@"SelectionViewController"]];
-    [self setLeftSize:150.0];
-    [self setRightSize:150.0];
     
-    if (self) {
-        // Add any extra init code here
+    if (self = [super initWithCoder:aDecoder]) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        self = [super initWithCenterViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalculateTableViewController"]
+                                leftViewController:[storyboard instantiateViewControllerWithIdentifier:@"OptionsViewController"]
+                               rightViewController:[storyboard instantiateViewControllerWithIdentifier:@"JobsViewController"]];
+        [self setLeftSize:115.0];
+        [self setRightSize:115.0];
     }
     return self;
 }

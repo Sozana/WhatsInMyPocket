@@ -17,16 +17,20 @@
 		679F4E7E16D9C17100E91BFF /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 679F4E7D16D9C17100E91BFF /* Default@2x.png */; };
 		679F4E8016D9C17100E91BFF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 679F4E7F16D9C17100E91BFF /* Default-568h@2x.png */; };
 		679F4E8316D9C17100E91BFF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */; };
-		679F4E8616D9C17100E91BFF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E8516D9C17100E91BFF /* ViewController.m */; };
 		679F4E8E16D9C44300E91BFF /* CalculateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */; };
 		679F4E9116D9C57200E91BFF /* InputTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E9016D9C57200E91BFF /* InputTableCell.m */; };
 		CDEDCA1B16FC47CF00262DBC /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA1A16FC47CF00262DBC /* InitialViewController.m */; };
 		CDEDCA2316FC480900262DBC /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA1E16FC480900262DBC /* IISideController.m */; };
 		CDEDCA2416FC480900262DBC /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA2016FC480900262DBC /* IIViewDeckController.m */; };
 		CDEDCA2516FC480900262DBC /* IIWrapController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA2216FC480900262DBC /* IIWrapController.m */; };
-		CDEDCA2816FC48A600262DBC /* SelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA2716FC48A600262DBC /* SelectionViewController.m */; };
+		CDEDCA2816FC48A600262DBC /* OptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA2716FC48A600262DBC /* OptionsViewController.m */; };
 		CDEDCA2A16FC48D900262DBC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDEDCA2916FC48D900262DBC /* QuartzCore.framework */; };
 		CDEDCA2D16FC4C3600262DBC /* JobsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA2C16FC4C3600262DBC /* JobsViewController.m */; };
+		CDEDCA3916FD897200262DBC /* OptionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA3816FD897200262DBC /* OptionTableCell.m */; };
+		CDEDCA4816FD92B600262DBC /* CheckMarkChecked.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA4416FD92B600262DBC /* CheckMarkChecked.png */; };
+		CDEDCA4916FD92B600262DBC /* CheckMarkChecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA4516FD92B600262DBC /* CheckMarkChecked@2x.png */; };
+		CDEDCA4A16FD92B600262DBC /* CheckMarkUnchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA4616FD92B600262DBC /* CheckMarkUnchecked.png */; };
+		CDEDCA4B16FD92B600262DBC /* CheckMarkUnchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA4716FD92B600262DBC /* CheckMarkUnchecked@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,8 +48,6 @@
 		679F4E7D16D9C17100E91BFF /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		679F4E7F16D9C17100E91BFF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		679F4E8216D9C17100E91BFF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		679F4E8416D9C17100E91BFF /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		679F4E8516D9C17100E91BFF /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		679F4E8C16D9C44300E91BFF /* CalculateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateTableViewController.h; sourceTree = "<group>"; };
 		679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateTableViewController.m; sourceTree = "<group>"; };
 		679F4E8F16D9C57200E91BFF /* InputTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputTableCell.h; sourceTree = "<group>"; };
@@ -58,11 +60,17 @@
 		CDEDCA2016FC480900262DBC /* IIViewDeckController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIViewDeckController.m; sourceTree = "<group>"; };
 		CDEDCA2116FC480900262DBC /* IIWrapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IIWrapController.h; sourceTree = "<group>"; };
 		CDEDCA2216FC480900262DBC /* IIWrapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IIWrapController.m; sourceTree = "<group>"; };
-		CDEDCA2616FC48A600262DBC /* SelectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectionViewController.h; sourceTree = "<group>"; };
-		CDEDCA2716FC48A600262DBC /* SelectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectionViewController.m; sourceTree = "<group>"; };
+		CDEDCA2616FC48A600262DBC /* OptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionsViewController.h; sourceTree = "<group>"; };
+		CDEDCA2716FC48A600262DBC /* OptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionsViewController.m; sourceTree = "<group>"; };
 		CDEDCA2916FC48D900262DBC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CDEDCA2B16FC4C3600262DBC /* JobsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobsViewController.h; sourceTree = "<group>"; };
 		CDEDCA2C16FC4C3600262DBC /* JobsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobsViewController.m; sourceTree = "<group>"; };
+		CDEDCA3716FD897200262DBC /* OptionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionTableCell.h; sourceTree = "<group>"; };
+		CDEDCA3816FD897200262DBC /* OptionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionTableCell.m; sourceTree = "<group>"; };
+		CDEDCA4416FD92B600262DBC /* CheckMarkChecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckMarkChecked.png; sourceTree = "<group>"; };
+		CDEDCA4516FD92B600262DBC /* CheckMarkChecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckMarkChecked@2x.png"; sourceTree = "<group>"; };
+		CDEDCA4616FD92B600262DBC /* CheckMarkUnchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckMarkUnchecked.png; sourceTree = "<group>"; };
+		CDEDCA4716FD92B600262DBC /* CheckMarkUnchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckMarkUnchecked@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,22 +119,15 @@
 		679F4E6F16D9C17100E91BFF /* WhatsInMyPocket */ = {
 			isa = PBXGroup;
 			children = (
+				CDEDCA4316FD92B100262DBC /* Assets */,
 				CDEDCA1C16FC480900262DBC /* ViewDeck */,
 				679F4E7816D9C17100E91BFF /* AppDelegate.h */,
 				679F4E7916D9C17100E91BFF /* AppDelegate.m */,
 				679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */,
 				CDEDCA1916FC47CF00262DBC /* InitialViewController.h */,
 				CDEDCA1A16FC47CF00262DBC /* InitialViewController.m */,
-				679F4E8C16D9C44300E91BFF /* CalculateTableViewController.h */,
-				679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */,
-				CDEDCA2616FC48A600262DBC /* SelectionViewController.h */,
-				CDEDCA2716FC48A600262DBC /* SelectionViewController.m */,
-				CDEDCA2B16FC4C3600262DBC /* JobsViewController.h */,
-				CDEDCA2C16FC4C3600262DBC /* JobsViewController.m */,
-				679F4E8F16D9C57200E91BFF /* InputTableCell.h */,
-				679F4E9016D9C57200E91BFF /* InputTableCell.m */,
-				679F4E8416D9C17100E91BFF /* ViewController.h */,
-				679F4E8516D9C17100E91BFF /* ViewController.m */,
+				CDEDCA3616FD88A000262DBC /* ViewControllers */,
+				CDEDCA3516FD888600262DBC /* TableCells */,
 				679F4E7016D9C17100E91BFF /* Supporting Files */,
 			);
 			path = WhatsInMyPocket;
@@ -157,6 +158,41 @@
 				CDEDCA2216FC480900262DBC /* IIWrapController.m */,
 			);
 			path = ViewDeck;
+			sourceTree = "<group>";
+		};
+		CDEDCA3516FD888600262DBC /* TableCells */ = {
+			isa = PBXGroup;
+			children = (
+				679F4E8F16D9C57200E91BFF /* InputTableCell.h */,
+				679F4E9016D9C57200E91BFF /* InputTableCell.m */,
+				CDEDCA3716FD897200262DBC /* OptionTableCell.h */,
+				CDEDCA3816FD897200262DBC /* OptionTableCell.m */,
+			);
+			name = TableCells;
+			sourceTree = "<group>";
+		};
+		CDEDCA3616FD88A000262DBC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				679F4E8C16D9C44300E91BFF /* CalculateTableViewController.h */,
+				679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */,
+				CDEDCA2616FC48A600262DBC /* OptionsViewController.h */,
+				CDEDCA2716FC48A600262DBC /* OptionsViewController.m */,
+				CDEDCA2B16FC4C3600262DBC /* JobsViewController.h */,
+				CDEDCA2C16FC4C3600262DBC /* JobsViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CDEDCA4316FD92B100262DBC /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				CDEDCA4416FD92B600262DBC /* CheckMarkChecked.png */,
+				CDEDCA4516FD92B600262DBC /* CheckMarkChecked@2x.png */,
+				CDEDCA4616FD92B600262DBC /* CheckMarkUnchecked.png */,
+				CDEDCA4716FD92B600262DBC /* CheckMarkUnchecked@2x.png */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +251,10 @@
 				679F4E7E16D9C17100E91BFF /* Default@2x.png in Resources */,
 				679F4E8016D9C17100E91BFF /* Default-568h@2x.png in Resources */,
 				679F4E8316D9C17100E91BFF /* MainStoryboard.storyboard in Resources */,
+				CDEDCA4816FD92B600262DBC /* CheckMarkChecked.png in Resources */,
+				CDEDCA4916FD92B600262DBC /* CheckMarkChecked@2x.png in Resources */,
+				CDEDCA4A16FD92B600262DBC /* CheckMarkUnchecked.png in Resources */,
+				CDEDCA4B16FD92B600262DBC /* CheckMarkUnchecked@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,15 +267,15 @@
 			files = (
 				679F4E7616D9C17100E91BFF /* main.m in Sources */,
 				679F4E7A16D9C17100E91BFF /* AppDelegate.m in Sources */,
-				679F4E8616D9C17100E91BFF /* ViewController.m in Sources */,
 				679F4E8E16D9C44300E91BFF /* CalculateTableViewController.m in Sources */,
 				679F4E9116D9C57200E91BFF /* InputTableCell.m in Sources */,
 				CDEDCA1B16FC47CF00262DBC /* InitialViewController.m in Sources */,
 				CDEDCA2316FC480900262DBC /* IISideController.m in Sources */,
 				CDEDCA2416FC480900262DBC /* IIViewDeckController.m in Sources */,
 				CDEDCA2516FC480900262DBC /* IIWrapController.m in Sources */,
-				CDEDCA2816FC48A600262DBC /* SelectionViewController.m in Sources */,
+				CDEDCA2816FC48A600262DBC /* OptionsViewController.m in Sources */,
 				CDEDCA2D16FC4C3600262DBC /* JobsViewController.m in Sources */,
+				CDEDCA3916FD897200262DBC /* OptionTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

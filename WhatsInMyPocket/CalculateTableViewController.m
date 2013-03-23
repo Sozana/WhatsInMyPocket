@@ -24,25 +24,19 @@
 {
     [super viewDidLoad];
 
-    _data = @[@"Job Name",
-              @"Date",
-              @"Monthly Base",
-              @"Number of Months",
-              @"Hours",
-              @"Hoerly Rate",
-              @"Total Wholesale",
-              @"Percentage",
-              @"Yearly Salary",
-              @"After Tax",
-              @"Before Tax",
-              @"Tax Return"];
+
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    
 }
-
+- (void)bababoi;
+{
+    
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -65,7 +59,7 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 1;
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

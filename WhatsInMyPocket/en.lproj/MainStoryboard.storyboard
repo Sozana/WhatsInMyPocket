@@ -77,12 +77,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Qxu-Cb-pnP">
-                        <barButtonItem key="leftBarButtonItem" title="Jobs" id="Esj-k0-3cv">
+                        <barButtonItem key="leftBarButtonItem" title="Options" id="Esj-k0-3cv">
                             <connections>
                                 <action selector="showJobs:" destination="yBs-li-bLX" id="z3W-c4-v2q"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Options" id="5kJ-9V-tpN">
+                        <barButtonItem key="rightBarButtonItem" title="Jobs" id="5kJ-9V-tpN">
                             <connections>
                                 <action selector="showSelection:" destination="yBs-li-bLX" id="KXP-YK-Qqg"/>
                             </connections>
@@ -149,23 +149,40 @@
             </objects>
             <point key="canvasLocation" x="595" y="1401"/>
         </scene>
-        <!--Selection View Controller - Options-->
+        <!--Options View Controller - Options-->
         <scene sceneID="PGo-FZ-Afd">
             <objects>
-                <tableViewController id="JHa-xb-HJP" customClass="SelectionViewController" sceneMemberID="viewController">
+                <tableViewController id="JHa-xb-HJP" customClass="OptionsViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dIF-2O-pFB">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="VHY-JV-yhA">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="checkmark" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OptionTableCell" editingAccessoryType="checkmark" id="VHY-JV-yhA" customClass="OptionTableCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="reO-Dl-VQc">
+                                            <rect key="frame" x="49" y="10" width="160" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="CheckMarkChecked.png" id="0l9-5k-iBB">
+                                            <rect key="frame" x="10" y="8" width="30" height="26"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <outlet property="checkMark" destination="0l9-5k-iBB" id="Zhh-pR-tU3"/>
+                                    <outlet property="label" destination="reO-Dl-VQc" id="5b9-bv-tKj"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                     </tableView>
@@ -178,7 +195,7 @@
         <!--Navigation Controller-->
         <scene sceneID="usM-qj-yi5">
             <objects>
-                <navigationController storyboardIdentifier="SelectionViewController" definesPresentationContext="YES" id="gk9-RY-B49" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="OptionsViewController" definesPresentationContext="YES" id="gk9-RY-B49" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="l2U-Ps-Qef">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -191,6 +208,9 @@
             <point key="canvasLocation" x="604" y="721"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="CheckMarkChecked.png" width="30" height="26"/>
+    </resources>
     <classes>
         <class className="CalculateTableViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CalculateTableViewController.h"/>
@@ -214,9 +234,22 @@
         </class>
         <class className="JobsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/JobsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
         </class>
-        <class className="SelectionViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SelectionViewController.h"/>
+        <class className="OptionTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="checkMark" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="OptionsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

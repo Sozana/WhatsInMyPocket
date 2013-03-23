@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "OptionsViewController.h"
+#import "JobsViewController.h"
 
-@interface CalculateTableViewController : UITableViewController <UITextFieldDelegate>
+@interface CalculateTableViewController : UITableViewController <UITextFieldDelegate, JobsViewControllerDelegate, OptionsViewControllerDelegate>
 
 @end
