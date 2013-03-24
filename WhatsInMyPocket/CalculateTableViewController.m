@@ -9,11 +9,13 @@
 #import "CalculateTableViewController.h"
 #import "InputTableCell.h"
 #import "IIViewDeckController.h"
-
+#import "DataManager.h"
+#import "Job.h"
+#import "Option.h"
 
 @interface CalculateTableViewController ()
 {
-    NSArray *_data;
+    Job *_currentJob;
 }
 @end
 
@@ -25,7 +27,7 @@
     [super viewDidLoad];
 
     NSLog(@"self %@", self);
-    
+    _currentJob = [[DataManager sharedManager] currentJob];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -59,22 +61,20 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return [_data count];
+    return [_currentJob.options count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"InputCell";
     InputTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    NSLog(@"row: %@", _data);
-    cell.label.text = [_data objectAtIndex:indexPath.row];
+    Option *o = [_currentJob.options objectAtIndex:indexPath.row];
+    cell.label.text = o.name;
     // Configure the cell...
     
     return cell;
@@ -139,14 +139,22 @@
 //- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;        // return NO to disallow editing.
 //- (void)textFieldDidBeginEditing:(UITextField *)textField;           // became first responder
 //- (BOOL)textFieldShouldEndEditing:(UITextField *)textField;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
-//- (void)textFieldDidEndEditing:(UITextField *)textField;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
+//{
+//    [textField resignFirstResponder];
+//    return YES;
+//}
 //
+//- (void)textFieldDidEndEditing:(UITextField *)textField;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
+//{
+//    
+//}
 //- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
 //
 //- (BOOL)textFieldShouldClear:(UITextField *)textField;               // called when clear button pressed. return NO to ignore (no notifications)
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField;              // called when 'return' key pressed. return NO to ignore.
 {
+    [textField resignFirstResponder];
     return YES;
 }
 

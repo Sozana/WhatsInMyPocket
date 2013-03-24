@@ -31,6 +31,10 @@
 		CDEDCA4916FD92B600262DBC /* CheckMarkChecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA4516FD92B600262DBC /* CheckMarkChecked@2x.png */; };
 		CDEDCA4A16FD92B600262DBC /* CheckMarkUnchecked.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA4616FD92B600262DBC /* CheckMarkUnchecked.png */; };
 		CDEDCA4B16FD92B600262DBC /* CheckMarkUnchecked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA4716FD92B600262DBC /* CheckMarkUnchecked@2x.png */; };
+		CDEDCA4E16FE591100262DBC /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA4D16FE591100262DBC /* DataManager.m */; };
+		CDEDCA5216FEC17B00262DBC /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA5116FEC17B00262DBC /* Job.m */; };
+		CDEDCA5516FEC59000262DBC /* Option.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA5416FEC59000262DBC /* Option.m */; };
+		CDEDCA5816FECC2400262DBC /* JobTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA5716FECC2400262DBC /* JobTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +75,14 @@
 		CDEDCA4516FD92B600262DBC /* CheckMarkChecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckMarkChecked@2x.png"; sourceTree = "<group>"; };
 		CDEDCA4616FD92B600262DBC /* CheckMarkUnchecked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CheckMarkUnchecked.png; sourceTree = "<group>"; };
 		CDEDCA4716FD92B600262DBC /* CheckMarkUnchecked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CheckMarkUnchecked@2x.png"; sourceTree = "<group>"; };
+		CDEDCA4C16FE591100262DBC /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DataManager.h; path = WhatsInMyPocket/DataManager.h; sourceTree = SOURCE_ROOT; };
+		CDEDCA4D16FE591100262DBC /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DataManager.m; path = WhatsInMyPocket/DataManager.m; sourceTree = SOURCE_ROOT; };
+		CDEDCA5016FEC17B00262DBC /* Job.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Job.h; sourceTree = "<group>"; };
+		CDEDCA5116FEC17B00262DBC /* Job.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Job.m; sourceTree = "<group>"; };
+		CDEDCA5316FEC59000262DBC /* Option.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Option.h; sourceTree = "<group>"; };
+		CDEDCA5416FEC59000262DBC /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Option.m; sourceTree = "<group>"; };
+		CDEDCA5616FECC2400262DBC /* JobTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobTableCell.h; sourceTree = "<group>"; };
+		CDEDCA5716FECC2400262DBC /* JobTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,9 +135,12 @@
 				CDEDCA1C16FC480900262DBC /* ViewDeck */,
 				679F4E7816D9C17100E91BFF /* AppDelegate.h */,
 				679F4E7916D9C17100E91BFF /* AppDelegate.m */,
+				CDEDCA4C16FE591100262DBC /* DataManager.h */,
+				CDEDCA4D16FE591100262DBC /* DataManager.m */,
 				679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */,
 				CDEDCA1916FC47CF00262DBC /* InitialViewController.h */,
 				CDEDCA1A16FC47CF00262DBC /* InitialViewController.m */,
+				CDEDCA4F16FEC16B00262DBC /* Models */,
 				CDEDCA3616FD88A000262DBC /* ViewControllers */,
 				CDEDCA3516FD888600262DBC /* TableCells */,
 				679F4E7016D9C17100E91BFF /* Supporting Files */,
@@ -167,6 +182,8 @@
 				679F4E9016D9C57200E91BFF /* InputTableCell.m */,
 				CDEDCA3716FD897200262DBC /* OptionTableCell.h */,
 				CDEDCA3816FD897200262DBC /* OptionTableCell.m */,
+				CDEDCA5616FECC2400262DBC /* JobTableCell.h */,
+				CDEDCA5716FECC2400262DBC /* JobTableCell.m */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -193,6 +210,17 @@
 				CDEDCA4716FD92B600262DBC /* CheckMarkUnchecked@2x.png */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		CDEDCA4F16FEC16B00262DBC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CDEDCA5016FEC17B00262DBC /* Job.h */,
+				CDEDCA5116FEC17B00262DBC /* Job.m */,
+				CDEDCA5316FEC59000262DBC /* Option.h */,
+				CDEDCA5416FEC59000262DBC /* Option.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,6 +304,10 @@
 				CDEDCA2816FC48A600262DBC /* OptionsViewController.m in Sources */,
 				CDEDCA2D16FC4C3600262DBC /* JobsViewController.m in Sources */,
 				CDEDCA3916FD897200262DBC /* OptionTableCell.m in Sources */,
+				CDEDCA4E16FE591100262DBC /* DataManager.m in Sources */,
+				CDEDCA5216FEC17B00262DBC /* Job.m in Sources */,
+				CDEDCA5516FEC59000262DBC /* Option.m in Sources */,
+				CDEDCA5816FECC2400262DBC /* JobTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

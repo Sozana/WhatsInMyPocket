@@ -9,10 +9,12 @@
 #import "OptionsViewController.h"
 #import "OptionTableCell.h"
 #import "IIViewDeckController.h"
+#import "DataManager.h"
+#import "Option.h"
 
 @interface OptionsViewController ()
 {
-    NSArray *_data;
+    NSArray *_options;
 }
 @end
 
@@ -33,18 +35,7 @@
     NSLog(@"self %@", self);
     NSLog(@"delegate %@", _delegate);
     
-    _data = @[@"Job Name",
-              @"Date",
-              @"Monthly Base",
-              @"Number of Months",
-              @"Hours",
-              @"Hoerly Rate",
-              @"Total Wholesale",
-              @"Percentage",
-              @"Yearly Salary",
-              @"After Tax",
-              @"Before Tax",
-              @"Tax Return"];
+    _options = [[DataManager sharedManager] options];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -71,14 +62,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [_data count];
+    return [_options count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"OptionTableCell";
     OptionTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    cell.label.text = [_data objectAtIndex:indexPath.row];
+    Option *o = [_options objectAtIndex:indexPath.row];
+    cell.label.text = o.name;
     //cell.textLabel.text = [_data objectAtIndex:indexPath.row];
     // Configure the cell...
     

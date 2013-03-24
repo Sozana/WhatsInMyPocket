@@ -7,9 +7,14 @@
 //
 
 #import "JobsViewController.h"
+#import "DataManager.h"
+#import "Job.h"
+#import "JobTableCell.h"
 
 @interface JobsViewController ()
-
+{
+    NSArray *_jobs;
+}
 @end
 
 @implementation JobsViewController
@@ -26,8 +31,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"delegate %@", _delegate);
-    [self.delegate bababoi];
+    _jobs = [[DataManager sharedManager] jobs];
+    NSLog(@"_jobs %@", _jobs);
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -45,22 +51,24 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [_jobs count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"JobTableCell";
+    JobTableCell *cell = (JobTableCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    Job *job = [_jobs objectAtIndex:indexPath.row];
+    NSLog(@"job.name %@", job.name);
+    
+    cell.label.text = job.name;
     
     // Configure the cell...
     
@@ -110,6 +118,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    JobTableCell *cell = (JobTableCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [cell toggleSelected];
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
