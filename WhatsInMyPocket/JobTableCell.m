@@ -53,10 +53,10 @@
     NSLog(@"%@ _setSelected %d",self.job.name, selected);
     _isSelected = selected;
     _job.isSelected = selected;
-    NSString *name = (_isSelected) ? @"CheckMarkChecked" : @"CheckMarkUnchecked";
+    NSString *name = (_isSelected) ? @"MinusImage" : @"PlusImage";
     
 //    [self _setImageWithName:name];
-     self.checkMark.image = [UIImage imageNamed:name];
+     self.indicatorImage.image = [UIImage imageNamed:name];
 }
 
 - (void)_jobDidChange:(NSNotification *)notification;

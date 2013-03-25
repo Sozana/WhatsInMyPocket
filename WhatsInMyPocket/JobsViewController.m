@@ -29,6 +29,9 @@
     NSLog(@"_jobs %@", _jobs);
     
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    self.tableView.tableHeaderView = ([_jobs count]) ? nil : _noJobsView;
+    
 
 }
 - (IBAction)addJob:(UIBarButtonItem *)sender;
@@ -145,7 +148,15 @@
     return YES;
 }
 */
-
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
+{
+    CGFloat height = 150.0;
+    if ([_jobs count]) {
+        height = 0.0;
+        _noJobsView.frame = CGRectZero;
+    }
+    return height;
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     CGFloat height = 40.0;

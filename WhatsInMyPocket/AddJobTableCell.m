@@ -1,35 +1,22 @@
 //
-//  JobSelectionTableCell.m
+//  AddJobTableCell.m
 //  WhatsInMyPocket
 //
-//  Created by Mattias Burstrom on 3/24/13.
+//  Created by Mattias Burstrom on 3/25/13.
 //  Copyright (c) 2013 sawsan altammar. All rights reserved.
 //
 
-#import "JobSelectionTableCell.h"
-@interface JobSelectionTableCell ()
-{
-    BOOL _isSelected;
-}
+#import "AddJobTableCell.h"
 
-@end
-@implementation JobSelectionTableCell
+@implementation AddJobTableCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _isSelected = YES;
+        // Initialization code
     }
     return self;
-}
-
-- (void)toggleSelected;
-{
-    _isSelected = !_isSelected;
-    NSLog(@"_isSelected %d", _isSelected);
-    self.accessoryType = (_isSelected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
-    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

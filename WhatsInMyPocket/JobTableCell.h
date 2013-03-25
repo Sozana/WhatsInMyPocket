@@ -13,7 +13,7 @@
 @interface JobTableCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
-@property (weak, nonatomic) IBOutlet UIImageView *checkMark;
+@property (weak, nonatomic) IBOutlet UIImageView *indicatorImage;
 @property (strong, nonatomic, readonly) Job *job;
 
 - (void)toggleSelected;

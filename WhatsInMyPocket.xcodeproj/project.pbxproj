@@ -41,6 +41,15 @@
 		CDEDCA6317000B9600262DBC /* WhatsInMyPocketTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA6117000B9600262DBC /* WhatsInMyPocketTitle@2x.png */; };
 		CDEDCA6617002FC700262DBC /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA6417002FC700262DBC /* Background.png */; };
 		CDEDCA6717002FC700262DBC /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA6517002FC700262DBC /* Background@2x.png */; };
+		CDEDCA6C17003A4C00262DBC /* ArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA6817003A4C00262DBC /* ArrowDown.png */; };
+		CDEDCA6D17003A4C00262DBC /* ArrowDown@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA6917003A4C00262DBC /* ArrowDown@2x.png */; };
+		CDEDCA6E17003A4C00262DBC /* ArrowUp.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA6A17003A4C00262DBC /* ArrowUp.png */; };
+		CDEDCA6F17003A4C00262DBC /* ArrowUp@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA6B17003A4C00262DBC /* ArrowUp@2x.png */; };
+		CDEDCA7217003AD600262DBC /* PlusImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA7017003AD600262DBC /* PlusImage.png */; };
+		CDEDCA7317003AD600262DBC /* PlusImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA7117003AD600262DBC /* PlusImage@2x.png */; };
+		CDEDCA7617003B3500262DBC /* MinusImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA7417003B3500262DBC /* MinusImage.png */; };
+		CDEDCA7717003B3500262DBC /* MinusImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA7517003B3500262DBC /* MinusImage@2x.png */; };
+		CDEDCA7A1700402B00262DBC /* AddJobTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA791700402B00262DBC /* AddJobTableCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +106,16 @@
 		CDEDCA6117000B9600262DBC /* WhatsInMyPocketTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhatsInMyPocketTitle@2x.png"; sourceTree = "<group>"; };
 		CDEDCA6417002FC700262DBC /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
 		CDEDCA6517002FC700262DBC /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
+		CDEDCA6817003A4C00262DBC /* ArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowDown.png; sourceTree = "<group>"; };
+		CDEDCA6917003A4C00262DBC /* ArrowDown@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ArrowDown@2x.png"; sourceTree = "<group>"; };
+		CDEDCA6A17003A4C00262DBC /* ArrowUp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ArrowUp.png; sourceTree = "<group>"; };
+		CDEDCA6B17003A4C00262DBC /* ArrowUp@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ArrowUp@2x.png"; sourceTree = "<group>"; };
+		CDEDCA7017003AD600262DBC /* PlusImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlusImage.png; sourceTree = "<group>"; };
+		CDEDCA7117003AD600262DBC /* PlusImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PlusImage@2x.png"; sourceTree = "<group>"; };
+		CDEDCA7417003B3500262DBC /* MinusImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MinusImage.png; sourceTree = "<group>"; };
+		CDEDCA7517003B3500262DBC /* MinusImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MinusImage@2x.png"; sourceTree = "<group>"; };
+		CDEDCA781700402B00262DBC /* AddJobTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddJobTableCell.h; sourceTree = "<group>"; };
+		CDEDCA791700402B00262DBC /* AddJobTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddJobTableCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +221,8 @@
 				CDEDCA3816FD897200262DBC /* OptionTableCell.m */,
 				CDEDCA5616FECC2400262DBC /* JobTableCell.h */,
 				CDEDCA5716FECC2400262DBC /* JobTableCell.m */,
+				CDEDCA781700402B00262DBC /* AddJobTableCell.h */,
+				CDEDCA791700402B00262DBC /* AddJobTableCell.m */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -222,6 +243,14 @@
 		CDEDCA4316FD92B100262DBC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				CDEDCA7417003B3500262DBC /* MinusImage.png */,
+				CDEDCA7517003B3500262DBC /* MinusImage@2x.png */,
+				CDEDCA7017003AD600262DBC /* PlusImage.png */,
+				CDEDCA7117003AD600262DBC /* PlusImage@2x.png */,
+				CDEDCA6817003A4C00262DBC /* ArrowDown.png */,
+				CDEDCA6917003A4C00262DBC /* ArrowDown@2x.png */,
+				CDEDCA6A17003A4C00262DBC /* ArrowUp.png */,
+				CDEDCA6B17003A4C00262DBC /* ArrowUp@2x.png */,
 				CDEDCA6417002FC700262DBC /* Background.png */,
 				CDEDCA6517002FC700262DBC /* Background@2x.png */,
 				CDEDCA6017000B9600262DBC /* WhatsInMyPocketTitle.png */,
@@ -309,6 +338,14 @@
 				CDEDCA6317000B9600262DBC /* WhatsInMyPocketTitle@2x.png in Resources */,
 				CDEDCA6617002FC700262DBC /* Background.png in Resources */,
 				CDEDCA6717002FC700262DBC /* Background@2x.png in Resources */,
+				CDEDCA6C17003A4C00262DBC /* ArrowDown.png in Resources */,
+				CDEDCA6D17003A4C00262DBC /* ArrowDown@2x.png in Resources */,
+				CDEDCA6E17003A4C00262DBC /* ArrowUp.png in Resources */,
+				CDEDCA6F17003A4C00262DBC /* ArrowUp@2x.png in Resources */,
+				CDEDCA7217003AD600262DBC /* PlusImage.png in Resources */,
+				CDEDCA7317003AD600262DBC /* PlusImage@2x.png in Resources */,
+				CDEDCA7617003B3500262DBC /* MinusImage.png in Resources */,
+				CDEDCA7717003B3500262DBC /* MinusImage@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -336,6 +373,7 @@
 				CDEDCA5816FECC2400262DBC /* JobTableCell.m in Sources */,
 				CDEDCA5C16FFC3E200262DBC /* Constants.m in Sources */,
 				CDEDCA5F16FFF06B00262DBC /* JobSelectionTableCell.m in Sources */,
+				CDEDCA7A1700402B00262DBC /* AddJobTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

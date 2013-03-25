@@ -41,7 +41,10 @@
     if (self = [super init]) {
         [self _loadOptions];
         [self _loadJobs];
-        self.currentJob = [_allJobs objectAtIndex:0];
+        if ([_allJobs count]) {
+            self.currentJob = [_allJobs objectAtIndex:0];
+        }
+        
         NSLog(@"%@", _currentJob);
     }
     return self;
@@ -74,7 +77,8 @@
 
 - (void)_loadJobs;
 {
-    NSArray *dummyJobs = @[@"Apple", @"Google"];
+    NSArray *dummyJobs = @[@"Apple", @"CBS", @"Ikea"];
+    //NSArray *dummyJobs = @[];
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:[dummyJobs count]];
     for (NSString *name in dummyJobs) {
         Job *job = [[Job alloc] initWithName:name];

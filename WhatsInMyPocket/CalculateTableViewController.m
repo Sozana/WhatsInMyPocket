@@ -14,6 +14,7 @@
 #import "Option.h"
 #import "Constants.h"
 #import "JobSelectionTableCell.h"
+#import "AddJobTableCell.h"
 
 @interface CalculateTableViewController ()
 {
@@ -49,7 +50,7 @@
 
 - (IBAction)whatsInMyPocket:(UIButton *)sender;
 {
-    self.resultLabel.text = @"No Idea!";
+    self.resultLabel.text = @"$3276";
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,18 +80,28 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-
-    return [_jobs count];
+    NSInteger cnt = [_jobs count];
+    return (cnt) ? cnt : 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"JobSelectionCell";
-    JobSelectionTableCell *cell = (JobSelectionTableCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    Job *job = [_jobs objectAtIndex:indexPath.row];
-    NSLog(@"%@", job.name);
+    UITableViewCell *cell = nil;
+    NSString *text = nil;
+    if ([_jobs count]) {
+        cell = (JobSelectionTableCell *)[tableView dequeueReusableCellWithIdentifier:@"JobSelectionCell" forIndexPath:indexPath];
+        Job *job = [_jobs objectAtIndex:indexPath.row];
+        NSLog(@"%@", job.name);
+        text = job.name;
+        
+    }else{
+        cell = [tableView dequeueReusableCellWithIdentifier:@"AddJobTableCell" forIndexPath:indexPath];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        text = @"Add Job";
+    }
+    cell.textLabel.text = text;
     
-    cell.textLabel.text = job.name;
+    
     // Configure the cell...
     
     return cell;
@@ -135,18 +146,30 @@
 }
 */
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;    // fixed font style. use custom view (UILabel) if you want something different
+{
+    NSString *title = nil;
+    if (section == 0) {
+        title = @"My Jobs";
+    }
+    return title;
+}
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[AddJobTableCell class]]) {
+        [self showJobs:nil];
+    }else{
+        [(JobSelectionTableCell *)cell toggleSelected];
+    }
     
-    JobSelectionTableCell *cell = (JobSelectionTableCell *)[tableView cellForRowAtIndexPath:indexPath];
-    [cell toggleSelected];
     
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
