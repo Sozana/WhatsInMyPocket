@@ -7,15 +7,18 @@
 //
 
 #import "CalculateTableViewController.h"
-#import "InputTableCell.h"
+#import "OptionInputCell.h"
 #import "IIViewDeckController.h"
 #import "DataManager.h"
 #import "Job.h"
 #import "Option.h"
+#import "Constants.h"
+#import "JobSelectionTableCell.h"
 
 @interface CalculateTableViewController ()
 {
-    Job *_currentJob;
+    NSArray *_jobs;
+    NSMutableArray *_selectedJobs;
 }
 @end
 
@@ -26,8 +29,11 @@
 {
     [super viewDidLoad];
 
-    NSLog(@"self %@", self);
-    _currentJob = [[DataManager sharedManager] currentJob];
+    _jobs = [DataManager sharedManager].jobs;
+    _selectedJobs = [NSMutableArray arrayWithCapacity:[_jobs count]];
+    NSLog(@"_jobs %@", _jobs);
+    
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -40,6 +46,12 @@
 {
     
 }
+
+- (IBAction)whatsInMyPocket:(UIButton *)sender;
+{
+    self.resultLabel.text = @"No Idea!";
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -47,6 +59,7 @@
     // another change
     
 }
+
 
 - (IBAction)showSelection:(UIBarButtonItem *)sender;
 {
@@ -66,15 +79,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_currentJob.options count];
+
+    return [_jobs count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"InputCell";
-    InputTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    Option *o = [_currentJob.options objectAtIndex:indexPath.row];
-    cell.label.text = o.name;
+    static NSString *CellIdentifier = @"JobSelectionCell";
+    JobSelectionTableCell *cell = (JobSelectionTableCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    Job *job = [_jobs objectAtIndex:indexPath.row];
+    NSLog(@"%@", job.name);
+    
+    cell.textLabel.text = job.name;
     // Configure the cell...
     
     return cell;
@@ -123,6 +139,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    JobSelectionTableCell *cell = (JobSelectionTableCell *)[tableView cellForRowAtIndexPath:indexPath];
+    [cell toggleSelected];
+    
     // Navigation logic may go here. Create and push another view controller.
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
@@ -135,27 +156,5 @@
 
 
 
-
-//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;        // return NO to disallow editing.
-//- (void)textFieldDidBeginEditing:(UITextField *)textField;           // became first responder
-//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
-//{
-//    [textField resignFirstResponder];
-//    return YES;
-//}
-//
-//- (void)textFieldDidEndEditing:(UITextField *)textField;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
-//{
-//    
-//}
-//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
-//
-//- (BOOL)textFieldShouldClear:(UITextField *)textField;               // called when clear button pressed. return NO to ignore (no notifications)
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField;              // called when 'return' key pressed. return NO to ignore.
-{
-    [textField resignFirstResponder];
-    return YES;
-}
 
 @end

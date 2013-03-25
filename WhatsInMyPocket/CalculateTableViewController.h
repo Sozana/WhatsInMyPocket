@@ -13,5 +13,8 @@
 @interface CalculateTableViewController : UITableViewController <UITextFieldDelegate, JobsViewControllerDelegate, OptionsViewControllerDelegate>
 
 @property (nonatomic, weak) IBOutlet OptionsViewController *optionsViewController;
+@property (nonatomic, weak) IBOutlet UILabel *resultLabel;
+
+- (IBAction)whatsInMyPocket:(UIButton *)sender;
 
 @end

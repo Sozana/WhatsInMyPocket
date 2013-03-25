@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Option.h"
 
 @interface OptionTableCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIImageView *checkMark;
+@property (strong, nonatomic, readonly) Option *option;
 
 - (void)toggleSelected;
+- (void)setOption:(Option *)option;
 
 @end

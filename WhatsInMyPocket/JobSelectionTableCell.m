@@ -1,51 +1,34 @@
 //
-//  OptionTableCell.m
+//  JobSelectionTableCell.m
 //  WhatsInMyPocket
 //
-//  Created by Mattias Burstrom on 3/22/13.
+//  Created by Mattias Burstrom on 3/24/13.
 //  Copyright (c) 2013 sawsan altammar. All rights reserved.
 //
 
-#import "OptionTableCell.h"
-
-@interface OptionTableCell ()
+#import "JobSelectionTableCell.h"
+@interface JobSelectionTableCell ()
 {
     BOOL _isSelected;
 }
 
 @end
-@implementation OptionTableCell
+@implementation JobSelectionTableCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        
     }
     return self;
 }
 
-- (void)awakeFromNib;
-{
-    [self _setImageWithName:@"CheckMarkUnchecked"];
-}
-
-- (void)setOption:(Option *)option;
-{
-    _option = option;
-    _label.text = _option.name;
-}
 - (void)toggleSelected;
 {
     _isSelected = !_isSelected;
-    NSString *name = (_isSelected) ? @"CheckMarkChecked" : @"CheckMarkUnchecked";
-    [self _setImageWithName:name];
-}
-
-- (void)_setImageWithName:(NSString *)name;
-{
-    self.checkMark.image = [UIImage imageNamed:name];
+    self.accessoryType = (_isSelected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

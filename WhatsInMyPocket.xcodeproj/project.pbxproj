@@ -18,7 +18,7 @@
 		679F4E8016D9C17100E91BFF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 679F4E7F16D9C17100E91BFF /* Default-568h@2x.png */; };
 		679F4E8316D9C17100E91BFF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */; };
 		679F4E8E16D9C44300E91BFF /* CalculateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */; };
-		679F4E9116D9C57200E91BFF /* InputTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E9016D9C57200E91BFF /* InputTableCell.m */; };
+		679F4E9116D9C57200E91BFF /* OptionInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E9016D9C57200E91BFF /* OptionInputCell.m */; };
 		CDEDCA1B16FC47CF00262DBC /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA1A16FC47CF00262DBC /* InitialViewController.m */; };
 		CDEDCA2316FC480900262DBC /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA1E16FC480900262DBC /* IISideController.m */; };
 		CDEDCA2416FC480900262DBC /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA2016FC480900262DBC /* IIViewDeckController.m */; };
@@ -35,6 +35,12 @@
 		CDEDCA5216FEC17B00262DBC /* Job.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA5116FEC17B00262DBC /* Job.m */; };
 		CDEDCA5516FEC59000262DBC /* Option.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA5416FEC59000262DBC /* Option.m */; };
 		CDEDCA5816FECC2400262DBC /* JobTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA5716FECC2400262DBC /* JobTableCell.m */; };
+		CDEDCA5C16FFC3E200262DBC /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA5B16FFC3E100262DBC /* Constants.m */; };
+		CDEDCA5F16FFF06B00262DBC /* JobSelectionTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA5E16FFF06B00262DBC /* JobSelectionTableCell.m */; };
+		CDEDCA6217000B9600262DBC /* WhatsInMyPocketTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA6017000B9600262DBC /* WhatsInMyPocketTitle.png */; };
+		CDEDCA6317000B9600262DBC /* WhatsInMyPocketTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA6117000B9600262DBC /* WhatsInMyPocketTitle@2x.png */; };
+		CDEDCA6617002FC700262DBC /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA6417002FC700262DBC /* Background.png */; };
+		CDEDCA6717002FC700262DBC /* Background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEDCA6517002FC700262DBC /* Background@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,8 +60,8 @@
 		679F4E8216D9C17100E91BFF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		679F4E8C16D9C44300E91BFF /* CalculateTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculateTableViewController.h; sourceTree = "<group>"; };
 		679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateTableViewController.m; sourceTree = "<group>"; };
-		679F4E8F16D9C57200E91BFF /* InputTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputTableCell.h; sourceTree = "<group>"; };
-		679F4E9016D9C57200E91BFF /* InputTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputTableCell.m; sourceTree = "<group>"; };
+		679F4E8F16D9C57200E91BFF /* OptionInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionInputCell.h; sourceTree = "<group>"; };
+		679F4E9016D9C57200E91BFF /* OptionInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionInputCell.m; sourceTree = "<group>"; };
 		CDEDCA1916FC47CF00262DBC /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
 		CDEDCA1A16FC47CF00262DBC /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		CDEDCA1D16FC480900262DBC /* IISideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IISideController.h; sourceTree = "<group>"; };
@@ -83,6 +89,14 @@
 		CDEDCA5416FEC59000262DBC /* Option.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Option.m; sourceTree = "<group>"; };
 		CDEDCA5616FECC2400262DBC /* JobTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobTableCell.h; sourceTree = "<group>"; };
 		CDEDCA5716FECC2400262DBC /* JobTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobTableCell.m; sourceTree = "<group>"; };
+		CDEDCA5A16FFC3E100262DBC /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		CDEDCA5B16FFC3E100262DBC /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		CDEDCA5D16FFF06B00262DBC /* JobSelectionTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobSelectionTableCell.h; sourceTree = "<group>"; };
+		CDEDCA5E16FFF06B00262DBC /* JobSelectionTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobSelectionTableCell.m; sourceTree = "<group>"; };
+		CDEDCA6017000B9600262DBC /* WhatsInMyPocketTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WhatsInMyPocketTitle.png; sourceTree = "<group>"; };
+		CDEDCA6117000B9600262DBC /* WhatsInMyPocketTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhatsInMyPocketTitle@2x.png"; sourceTree = "<group>"; };
+		CDEDCA6417002FC700262DBC /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Background.png; sourceTree = "<group>"; };
+		CDEDCA6517002FC700262DBC /* Background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +152,8 @@
 				CDEDCA4C16FE591100262DBC /* DataManager.h */,
 				CDEDCA4D16FE591100262DBC /* DataManager.m */,
 				679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */,
+				CDEDCA5A16FFC3E100262DBC /* Constants.h */,
+				CDEDCA5B16FFC3E100262DBC /* Constants.m */,
 				CDEDCA1916FC47CF00262DBC /* InitialViewController.h */,
 				CDEDCA1A16FC47CF00262DBC /* InitialViewController.m */,
 				CDEDCA4F16FEC16B00262DBC /* Models */,
@@ -178,8 +194,10 @@
 		CDEDCA3516FD888600262DBC /* TableCells */ = {
 			isa = PBXGroup;
 			children = (
-				679F4E8F16D9C57200E91BFF /* InputTableCell.h */,
-				679F4E9016D9C57200E91BFF /* InputTableCell.m */,
+				679F4E8F16D9C57200E91BFF /* OptionInputCell.h */,
+				679F4E9016D9C57200E91BFF /* OptionInputCell.m */,
+				CDEDCA5D16FFF06B00262DBC /* JobSelectionTableCell.h */,
+				CDEDCA5E16FFF06B00262DBC /* JobSelectionTableCell.m */,
 				CDEDCA3716FD897200262DBC /* OptionTableCell.h */,
 				CDEDCA3816FD897200262DBC /* OptionTableCell.m */,
 				CDEDCA5616FECC2400262DBC /* JobTableCell.h */,
@@ -204,6 +222,10 @@
 		CDEDCA4316FD92B100262DBC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				CDEDCA6417002FC700262DBC /* Background.png */,
+				CDEDCA6517002FC700262DBC /* Background@2x.png */,
+				CDEDCA6017000B9600262DBC /* WhatsInMyPocketTitle.png */,
+				CDEDCA6117000B9600262DBC /* WhatsInMyPocketTitle@2x.png */,
 				CDEDCA4416FD92B600262DBC /* CheckMarkChecked.png */,
 				CDEDCA4516FD92B600262DBC /* CheckMarkChecked@2x.png */,
 				CDEDCA4616FD92B600262DBC /* CheckMarkUnchecked.png */,
@@ -283,6 +305,10 @@
 				CDEDCA4916FD92B600262DBC /* CheckMarkChecked@2x.png in Resources */,
 				CDEDCA4A16FD92B600262DBC /* CheckMarkUnchecked.png in Resources */,
 				CDEDCA4B16FD92B600262DBC /* CheckMarkUnchecked@2x.png in Resources */,
+				CDEDCA6217000B9600262DBC /* WhatsInMyPocketTitle.png in Resources */,
+				CDEDCA6317000B9600262DBC /* WhatsInMyPocketTitle@2x.png in Resources */,
+				CDEDCA6617002FC700262DBC /* Background.png in Resources */,
+				CDEDCA6717002FC700262DBC /* Background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +322,7 @@
 				679F4E7616D9C17100E91BFF /* main.m in Sources */,
 				679F4E7A16D9C17100E91BFF /* AppDelegate.m in Sources */,
 				679F4E8E16D9C44300E91BFF /* CalculateTableViewController.m in Sources */,
-				679F4E9116D9C57200E91BFF /* InputTableCell.m in Sources */,
+				679F4E9116D9C57200E91BFF /* OptionInputCell.m in Sources */,
 				CDEDCA1B16FC47CF00262DBC /* InitialViewController.m in Sources */,
 				CDEDCA2316FC480900262DBC /* IISideController.m in Sources */,
 				CDEDCA2416FC480900262DBC /* IIViewDeckController.m in Sources */,
@@ -308,6 +334,8 @@
 				CDEDCA5216FEC17B00262DBC /* Job.m in Sources */,
 				CDEDCA5516FEC59000262DBC /* Option.m in Sources */,
 				CDEDCA5816FECC2400262DBC /* JobTableCell.m in Sources */,
+				CDEDCA5C16FFC3E200262DBC /* Constants.m in Sources */,
+				CDEDCA5F16FFF06B00262DBC /* JobSelectionTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

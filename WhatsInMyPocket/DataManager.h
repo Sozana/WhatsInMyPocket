@@ -12,6 +12,8 @@
 
 @interface DataManager : NSObject
 
+@property (nonatomic, strong) Job *currentJob;
+
 + (DataManager *)sharedManager;
 - (NSArray *)options;
 - (NSArray *)jobs;

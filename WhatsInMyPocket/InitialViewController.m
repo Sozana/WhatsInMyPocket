@@ -24,17 +24,16 @@
     if (self = [super initWithCoder:aDecoder]) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
         self = [super initWithCenterViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalculateTableViewController"]
-                                leftViewController:[storyboard instantiateViewControllerWithIdentifier:@"OptionsViewController"]
-                               rightViewController:[storyboard instantiateViewControllerWithIdentifier:@"JobsViewController"]];
-        [self setLeftSize:115.0];
-        [self setRightSize:115.0];
+                                leftViewController:[storyboard instantiateViewControllerWithIdentifier:@"JobsViewController"]];
+        [self setLeftSize:50.0];
+//        [self setRightSize:115.0];
         
         CalculateTableViewController *cvc = (CalculateTableViewController *)[(UINavigationController *)self.centerController topViewController];
         
-        OptionsViewController *ovc = (OptionsViewController *)[(UINavigationController *)self.leftController topViewController];
+//        OptionsViewController *ovc = (OptionsViewController *)[(UINavigationController *)self.leftController topViewController];
         JobsViewController *jvc = (JobsViewController *)[(UINavigationController *)self.rightController topViewController];
-        NSLog(@"ovc %@", ovc);
-        ovc.delegate = cvc;
+//        NSLog(@"ovc %@", ovc);
+//        ovc.delegate = cvc;
         jvc.delegate = cvc;
     }
     return self;

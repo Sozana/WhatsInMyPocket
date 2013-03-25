@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 sawsan altammar. All rights reserved.
 //
 
-#import "InputTableCell.h"
+#import "OptionInputCell.h"
+#import "Option.h"
 
-@implementation InputTableCell
+@implementation OptionInputCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -17,6 +18,11 @@
         // Initialization code
     }
     return self;
+}
+
+- (void)setOption:(Option *)option;
+{
+    self.label.text = option.name;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

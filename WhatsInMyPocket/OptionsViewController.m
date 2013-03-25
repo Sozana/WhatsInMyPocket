@@ -70,7 +70,7 @@
     static NSString *CellIdentifier = @"OptionTableCell";
     OptionTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     Option *o = [_options objectAtIndex:indexPath.row];
-    cell.label.text = o.name;
+    [cell setOption:o];
     //cell.textLabel.text = [_data objectAtIndex:indexPath.row];
     // Configure the cell...
     

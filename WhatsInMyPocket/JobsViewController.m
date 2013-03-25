@@ -9,69 +9,101 @@
 #import "JobsViewController.h"
 #import "DataManager.h"
 #import "Job.h"
+#import "Option.h"
 #import "JobTableCell.h"
+#import "OptionInputCell.h"
 
 @interface JobsViewController ()
 {
-    NSArray *_jobs;
+    NSMutableArray *_jobs;
+    Job *_selectedJob;
 }
 @end
 
 @implementation JobsViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _jobs = [[DataManager sharedManager] jobs];
+    _jobs = [[[DataManager sharedManager] jobs] mutableCopy];
     NSLog(@"_jobs %@", _jobs);
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.tableView.tableFooterView = [[UIView alloc] init];
+
+}
+- (IBAction)addJob:(UIBarButtonItem *)sender;
+{
+    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Job Name"
+                                                      message:nil
+                                                     delegate:self
+                                            cancelButtonTitle:@"Cancel"
+                                            otherButtonTitles:@"Add", nil];
+    
+    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
+    
+    [message show];
 }
 
-- (void)didReceiveMemoryWarning
+- (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSString *name = [[alertView textFieldAtIndex:0] text];
+    if( [name length] >= 3 ){
+        return YES;
+    }
+    return NO;
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex;
+{
+    if (buttonIndex == 1) {
+        NSString *name = [[alertView textFieldAtIndex:0] text];
+        [self _addJobWithName:name];
+    }
+}
+
+- (void)_addJobWithName:(NSString *)name;
+{
+    Job *job = [[Job alloc] initWithName:name];
+    job.options = [[DataManager sharedManager] options];
+    [_jobs insertObject:job atIndex:0];
+    NSLog(@"_jobs %@", _jobs);
+    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+    return [_jobs count];
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return [_jobs count];
+    NSInteger rows = 1;
+    Job *job = [_jobs objectAtIndex:section];
+    if (job.isSelected || [job isEqual:_selectedJob]) {
+        rows = [job.options count] + 1;
+    }
+    NSLog(@"section %d rows %d",section, rows);
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"JobTableCell";
-    JobTableCell *cell = (JobTableCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    Job *job = [_jobs objectAtIndex:indexPath.row];
-    NSLog(@"job.name %@", job.name);
-    
-    cell.label.text = job.name;
-    
-    // Configure the cell...
-    
+    UITableViewCell *cell = nil;
+
+    if (indexPath.row == 0) {
+        cell = (JobTableCell *)[tableView dequeueReusableCellWithIdentifier:@"JobTableCell" forIndexPath:indexPath];
+        Job *job = [_jobs objectAtIndex:indexPath.section];
+        [(JobTableCell *)cell setJob:job];
+    }else{
+        cell = (OptionInputCell *)[tableView dequeueReusableCellWithIdentifier:@"OptionInputCell" forIndexPath:indexPath];
+        Job *job = [_jobs objectAtIndex:indexPath.section];
+        Option *option = [job.options objectAtIndex:indexPath.row-1];
+        [(OptionInputCell *)cell setOption:option];
+    }
+
     return cell;
 }
 
@@ -114,6 +146,18 @@
 }
 */
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    CGFloat height = 40.0;
+    if (indexPath.row > 0) {
+        height = 36.0;
+    }
+    return height;
+}
+- (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -121,14 +165,65 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     JobTableCell *cell = (JobTableCell *)[tableView cellForRowAtIndexPath:indexPath];
+    Job *job = cell.job;
+    _selectedJob = job;
+    BOOL deselect = job.isSelected;
     [cell toggleSelected];
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    
+    NSLog(@"indexPath %d", indexPath.section);
+    int cnt = [cell.job.options count];
+    
+    NSLog(@"%d", cnt);
+    
+    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:cnt];
+    for (int i=1; i<=cnt; i++) {
+        NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:indexPath.section];
+        [arr addObject:ip];
+    }
+
+    for (Job *jj in _jobs) {
+        if (NO == jj.isSelected) {
+            [tableView insertRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationTop];
+        } else if(deselect) {
+            
+            [tableView deleteRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationTop];
+        }
+    }
+}
+
+
+
+
+#pragma mark - TextFieldDelegate
+
+
+//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;        // return NO to disallow editing.
+//- (void)textFieldDidBeginEditing:(UITextField *)textField;           // became first responder
+//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
+//{
+//    [textField resignFirstResponder];
+//    return YES;
+//}
+//
+//- (void)textFieldDidEndEditing:(UITextField *)textField;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
+//{
+//
+//}
+//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
+//
+//- (BOOL)textFieldShouldClear:(UITextField *)textField;               // called when clear button pressed. return NO to ignore (no notifications)
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;              // called when 'return' key pressed. return NO to ignore.
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
+#pragma mark - Memory Management
+
+- (void)dealloc;
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

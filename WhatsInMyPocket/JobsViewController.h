@@ -10,10 +10,11 @@
 
 @protocol JobsViewControllerDelegate;
 
-@interface JobsViewController : UITableViewController
+@interface JobsViewController : UITableViewController <UIAlertViewDelegate>
 
 @property (nonatomic, weak) IBOutlet id <JobsViewControllerDelegate>delegate;
 
+- (IBAction)addJob:(UIBarButtonItem *)sender;
 
 @end
 

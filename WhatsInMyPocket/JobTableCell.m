@@ -15,7 +15,6 @@
 
 @end
 
-static NSString *kSelectNotification = @"DidSelectJobObjectNotification";
 
 @implementation JobTableCell
 
@@ -33,23 +32,28 @@ static NSString *kSelectNotification = @"DidSelectJobObjectNotification";
     [self _setSelected:NO];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(_jobDidChange:)
-                                                 name:kSelectNotification
+                                                 name:kJobSelectedNotification
                                                object:nil];
+}
+
+- (void)setJob:(Job *)job;
+{
+    _job = job;
+    _label.text = _job.name;
 }
 
 - (void)toggleSelected;
 {
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:kSelectNotification object:self];
-    
-
+    [self _setSelected:(_isSelected) ? NO : YES];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kJobSelectedNotification object:_job];
 }
 
 - (void)_setSelected:(BOOL)selected;
 {
+    NSLog(@"%@ _setSelected %d",self.job.name, selected);
     _isSelected = selected;
+    _job.isSelected = selected;
     NSString *name = (_isSelected) ? @"CheckMarkChecked" : @"CheckMarkUnchecked";
-    NSLog(@"name %@", name);
     
 //    [self _setImageWithName:name];
      self.checkMark.image = [UIImage imageNamed:name];
@@ -57,8 +61,11 @@ static NSString *kSelectNotification = @"DidSelectJobObjectNotification";
 
 - (void)_jobDidChange:(NSNotification *)notification;
 {
-    JobTableCell *cell = (JobTableCell *)notification.object;
-    [self _setSelected:([cell isEqual:self])];
+    Job *job = (Job *)notification.object;
+    if (NO == [job isEqual:_job]) {
+        [self _setSelected:NO];
+    }
+
 }
 
 - (void)_setImageWithName:(NSString *)name;

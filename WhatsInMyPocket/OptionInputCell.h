@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface InputTableCell : UITableViewCell
+@class Option;
+
+@interface OptionInputCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UITextField *inputField;
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
+- (void)setOption:(Option *)option;
 @end

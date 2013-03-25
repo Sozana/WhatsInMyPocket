@@ -10,6 +10,10 @@
 
 @interface Option : NSObject
 
-@property (nonatomic, strong) NSString *name;
+@property (nonatomic, readonly) NSString *ID;
+@property (nonatomic, readonly) NSString *name;
+
+- (id)initWithName:(NSString *)name;
+- (void)setName:(NSString *)name;
 
 @end
