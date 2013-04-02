@@ -12,6 +12,7 @@
 
 @property (nonatomic, readonly) NSString *ID;
 @property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSString *value;
 
 - (id)initWithName:(NSString *)name;
 - (void)setName:(NSString *)name;

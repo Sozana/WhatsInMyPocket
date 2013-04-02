@@ -110,4 +110,31 @@
     
     return _allJobs;
 }
+
+- (void)save;
+{
+    [self _saveData];
+}
+
+- (NSString *)_dataFilePath;
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:@"data.txt"];
+    return filePath;
+}
+
+- (void)_loadData;
+{
+    NSDictionary *data = [NSKeyedUnarchiver unarchiveObjectWithFile:[self _dataFilePath]];
+    NSLog(@"data %@", data);
+}
+
+- (void)_saveData;
+{
+    NSDictionary *data = @{@"Jobs" : _allJobs, @"Options" : _allOptions};
+    NSLog(@"data %@", data);
+    [NSKeyedArchiver archiveRootObject:data toFile:[self _dataFilePath]];
+}
+
 @end

@@ -15,6 +15,7 @@
 @property (nonatomic, strong) Job *currentJob;
 
 + (DataManager *)sharedManager;
+- (void)save;
 - (NSArray *)options;
 - (NSArray *)jobs;
 - (Job *)currentJob;

@@ -187,16 +187,10 @@
 				CDEDCA1C16FC480900262DBC /* ViewDeck */,
 				679F4E7816D9C17100E91BFF /* AppDelegate.h */,
 				679F4E7916D9C17100E91BFF /* AppDelegate.m */,
-				CDEDCA4C16FE591100262DBC /* DataManager.h */,
-				CDEDCA4D16FE591100262DBC /* DataManager.m */,
 				679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */,
 				CDEDCA5A16FFC3E100262DBC /* Constants.h */,
 				CDEDCA5B16FFC3E100262DBC /* Constants.m */,
-				CDEDCA1916FC47CF00262DBC /* InitialViewController.h */,
-				CDEDCA1A16FC47CF00262DBC /* InitialViewController.m */,
-				CDEB4C93170AAC3A00893B67 /* SplashViewController.h */,
-				CDEB4C94170AAC3B00893B67 /* SplashViewController.m */,
-				CDBD9F3D170ABC6A00C9B388 /* SplashViewController.xib */,
+				CDBD9F3F170AC16A00C9B388 /* Managers */,
 				CDEDCA4F16FEC16B00262DBC /* Models */,
 				CDEDCA3616FD88A000262DBC /* ViewControllers */,
 				CDEDCA3516FD888600262DBC /* TableCells */,
@@ -217,6 +211,27 @@
 				679F4E7F16D9C17100E91BFF /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CDBD9F3F170AC16A00C9B388 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				CDEDCA4C16FE591100262DBC /* DataManager.h */,
+				CDEDCA4D16FE591100262DBC /* DataManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		CDBD9F40170AC18600C9B388 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				CDEDCA1916FC47CF00262DBC /* InitialViewController.h */,
+				CDEDCA1A16FC47CF00262DBC /* InitialViewController.m */,
+				CDEB4C93170AAC3A00893B67 /* SplashViewController.h */,
+				CDEB4C94170AAC3B00893B67 /* SplashViewController.m */,
+				CDBD9F3D170ABC6A00C9B388 /* SplashViewController.xib */,
+			);
+			name = Root;
 			sourceTree = "<group>";
 		};
 		CDEDCA1C16FC480900262DBC /* ViewDeck */ = {
@@ -252,6 +267,7 @@
 		CDEDCA3616FD88A000262DBC /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CDBD9F40170AC18600C9B388 /* Root */,
 				679F4E8C16D9C44300E91BFF /* CalculateTableViewController.h */,
 				679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */,
 				CDEDCA2616FC48A600262DBC /* OptionsViewController.h */,

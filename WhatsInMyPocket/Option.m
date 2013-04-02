@@ -18,6 +18,26 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)decoder;
+{
+    if (self = [super init]) {
+        _ID = [decoder decodeObjectForKey:@"ID"];
+        _name = [decoder decodeObjectForKey:@"value"];
+        _value = [decoder decodeObjectForKey:@"value"];
+        
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)encoder;
+{
+    [encoder encodeObject:_ID forKey:@"ID"];
+    [encoder encodeObject:_name forKey:@"name"];
+    [encoder encodeObject:_value forKey:@"value"];
+}
+
+
+
 - (void)setName:(NSString *)name;
 {
     _name = name;
