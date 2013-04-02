@@ -14,12 +14,12 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="yBs-li-bLX" kind="relationship" relationship="rootViewController" id="eBO-yX-IRQ"/>
+                        <segue destination="yBs-li-bLX" kind="relationship" relationship="rootViewController" id="riu-e6-fzS"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bpy-su-nVp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="13" y="10"/>
+            <point key="canvasLocation" x="28" y="-145"/>
         </scene>
         <!--Initial View Controller-->
         <scene sceneID="PZx-47-KwF">
@@ -122,22 +122,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NlL-6t-qnd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="400" y="-3"/>
-        </scene>
-        <!--View Controller - Result-->
-        <scene sceneID="S2h-Pr-NMy">
-            <objects>
-                <viewController id="RbI-5S-ohr" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="HwQ-nb-pmI">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Result" id="dR6-uo-Was"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jcH-Iq-woi" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="889" y="-14"/>
+            <point key="canvasLocation" x="682" y="-210"/>
         </scene>
         <!--Jobs View Controller - Jobs-->
         <scene sceneID="ipB-Xu-JA5">

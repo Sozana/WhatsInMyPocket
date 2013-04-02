@@ -15,11 +15,14 @@
 #import "Constants.h"
 #import "JobSelectionTableCell.h"
 #import "AddJobTableCell.h"
+#import "SplashViewController.h"
+
 
 @interface CalculateTableViewController ()
 {
     NSArray *_jobs;
     NSMutableArray *_selectedJobs;
+    SplashViewController *_splashViewController;
 }
 @end
 
@@ -30,11 +33,16 @@
 {
     [super viewDidLoad];
 
+    _splashViewController = [[SplashViewController alloc] init];
+    [self presentViewController:_splashViewController animated:NO completion:nil];
+    [self performSelector:@selector(_removeSplash) withObject:nil afterDelay:4];
+
     _jobs = [DataManager sharedManager].jobs;
     _selectedJobs = [NSMutableArray arrayWithCapacity:[_jobs count]];
     NSLog(@"_jobs %@", _jobs);
     
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -43,6 +51,24 @@
     
     
 }
+
+- (void)_removeSplash;
+{
+    [self dismissViewControllerAnimated:YES completion:^(void) {
+        _splashViewController = nil;
+    }];
+//    [UIView animateWithDuration:1.0f
+//                     animations:^{
+//                         _splashViewController.view.alpha = 0.0f;
+//                     }
+//                     completion:^(BOOL finished) {
+//                         if (finished) {
+//                             
+//                         }
+//                     }];
+    
+}
+
 - (void)bababoi;
 {
     

@@ -19,6 +19,14 @@
 		679F4E8316D9C17100E91BFF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */; };
 		679F4E8E16D9C44300E91BFF /* CalculateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */; };
 		679F4E9116D9C57200E91BFF /* OptionInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E9016D9C57200E91BFF /* OptionInputCell.m */; };
+		CDBD9F34170AB36A00C9B388 /* AppIcon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBD9F33170AB36A00C9B388 /* AppIcon-57.png */; };
+		CDBD9F36170AB36F00C9B388 /* AppIcon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBD9F35170AB36F00C9B388 /* AppIcon-114.png */; };
+		CDBD9F3E170ABC6A00C9B388 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBD9F3D170ABC6A00C9B388 /* SplashViewController.xib */; };
+		CDEB4C96170AAC3B00893B67 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEB4C94170AAC3B00893B67 /* SplashViewController.m */; };
+		CDEB4CA4170AB0E600893B67 /* LargeTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEB4C9C170AB0E600893B67 /* LargeTitle.png */; };
+		CDEB4CA5170AB0E600893B67 /* LargeTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEB4C9D170AB0E600893B67 /* LargeTitle@2x.png */; };
+		CDEB4CA6170AB0E600893B67 /* PocketImage.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEB4C9E170AB0E600893B67 /* PocketImage.png */; };
+		CDEB4CA7170AB0E600893B67 /* PocketImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEB4C9F170AB0E600893B67 /* PocketImage@2x.png */; };
 		CDEDCA1B16FC47CF00262DBC /* InitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA1A16FC47CF00262DBC /* InitialViewController.m */; };
 		CDEDCA2316FC480900262DBC /* IISideController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA1E16FC480900262DBC /* IISideController.m */; };
 		CDEDCA2416FC480900262DBC /* IIViewDeckController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEDCA2016FC480900262DBC /* IIViewDeckController.m */; };
@@ -71,6 +79,15 @@
 		679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateTableViewController.m; sourceTree = "<group>"; };
 		679F4E8F16D9C57200E91BFF /* OptionInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionInputCell.h; sourceTree = "<group>"; };
 		679F4E9016D9C57200E91BFF /* OptionInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionInputCell.m; sourceTree = "<group>"; };
+		CDBD9F33170AB36A00C9B388 /* AppIcon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-57.png"; sourceTree = "<group>"; };
+		CDBD9F35170AB36F00C9B388 /* AppIcon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-114.png"; sourceTree = "<group>"; };
+		CDBD9F3D170ABC6A00C9B388 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		CDEB4C93170AAC3A00893B67 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		CDEB4C94170AAC3B00893B67 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		CDEB4C9C170AB0E600893B67 /* LargeTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LargeTitle.png; sourceTree = "<group>"; };
+		CDEB4C9D170AB0E600893B67 /* LargeTitle@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LargeTitle@2x.png"; sourceTree = "<group>"; };
+		CDEB4C9E170AB0E600893B67 /* PocketImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PocketImage.png; sourceTree = "<group>"; };
+		CDEB4C9F170AB0E600893B67 /* PocketImage@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PocketImage@2x.png"; sourceTree = "<group>"; };
 		CDEDCA1916FC47CF00262DBC /* InitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitialViewController.h; sourceTree = "<group>"; };
 		CDEDCA1A16FC47CF00262DBC /* InitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitialViewController.m; sourceTree = "<group>"; };
 		CDEDCA1D16FC480900262DBC /* IISideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IISideController.h; sourceTree = "<group>"; };
@@ -136,6 +153,8 @@
 		679F4E5D16D9C17000E91BFF = {
 			isa = PBXGroup;
 			children = (
+				CDBD9F35170AB36F00C9B388 /* AppIcon-114.png */,
+				CDBD9F33170AB36A00C9B388 /* AppIcon-57.png */,
 				679F4E6F16D9C17100E91BFF /* WhatsInMyPocket */,
 				679F4E6816D9C17100E91BFF /* Frameworks */,
 				679F4E6716D9C17100E91BFF /* Products */,
@@ -175,6 +194,9 @@
 				CDEDCA5B16FFC3E100262DBC /* Constants.m */,
 				CDEDCA1916FC47CF00262DBC /* InitialViewController.h */,
 				CDEDCA1A16FC47CF00262DBC /* InitialViewController.m */,
+				CDEB4C93170AAC3A00893B67 /* SplashViewController.h */,
+				CDEB4C94170AAC3B00893B67 /* SplashViewController.m */,
+				CDBD9F3D170ABC6A00C9B388 /* SplashViewController.xib */,
 				CDEDCA4F16FEC16B00262DBC /* Models */,
 				CDEDCA3616FD88A000262DBC /* ViewControllers */,
 				CDEDCA3516FD888600262DBC /* TableCells */,
@@ -243,6 +265,10 @@
 		CDEDCA4316FD92B100262DBC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				CDEB4C9C170AB0E600893B67 /* LargeTitle.png */,
+				CDEB4C9D170AB0E600893B67 /* LargeTitle@2x.png */,
+				CDEB4C9E170AB0E600893B67 /* PocketImage.png */,
+				CDEB4C9F170AB0E600893B67 /* PocketImage@2x.png */,
 				CDEDCA7417003B3500262DBC /* MinusImage.png */,
 				CDEDCA7517003B3500262DBC /* MinusImage@2x.png */,
 				CDEDCA7017003AD600262DBC /* PlusImage.png */,
@@ -346,6 +372,13 @@
 				CDEDCA7317003AD600262DBC /* PlusImage@2x.png in Resources */,
 				CDEDCA7617003B3500262DBC /* MinusImage.png in Resources */,
 				CDEDCA7717003B3500262DBC /* MinusImage@2x.png in Resources */,
+				CDEB4CA4170AB0E600893B67 /* LargeTitle.png in Resources */,
+				CDEB4CA5170AB0E600893B67 /* LargeTitle@2x.png in Resources */,
+				CDEB4CA6170AB0E600893B67 /* PocketImage.png in Resources */,
+				CDEB4CA7170AB0E600893B67 /* PocketImage@2x.png in Resources */,
+				CDBD9F34170AB36A00C9B388 /* AppIcon-57.png in Resources */,
+				CDBD9F36170AB36F00C9B388 /* AppIcon-114.png in Resources */,
+				CDBD9F3E170ABC6A00C9B388 /* SplashViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,6 +407,7 @@
 				CDEDCA5C16FFC3E200262DBC /* Constants.m in Sources */,
 				CDEDCA5F16FFF06B00262DBC /* JobSelectionTableCell.m in Sources */,
 				CDEDCA7A1700402B00262DBC /* AddJobTableCell.m in Sources */,
+				CDEB4C96170AAC3B00893B67 /* SplashViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

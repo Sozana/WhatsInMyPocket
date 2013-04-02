@@ -103,6 +103,7 @@
     }else{
         cell = (OptionInputCell *)[tableView dequeueReusableCellWithIdentifier:@"OptionInputCell" forIndexPath:indexPath];
         Job *job = [_jobs objectAtIndex:indexPath.section];
+        NSLog(@"jobOptions %@", job.options);
         Option *option = [job.options objectAtIndex:indexPath.row-1];
         [(OptionInputCell *)cell setOption:option];
     }
@@ -189,11 +190,17 @@
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:cnt];
     for (int i=1; i<=cnt; i++) {
         NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:indexPath.section];
+        NSLog(@"ip %@", ip);
         [arr addObject:ip];
     }
 
+    [tableView reloadData];
+
+    return;
+    // TODO: Fix the animated updates!
     for (Job *jj in _jobs) {
         if (NO == jj.isSelected) {
+            
             [tableView insertRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationTop];
         } else if(deselect) {
             

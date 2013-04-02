@@ -10,6 +10,7 @@
 #import "CalculateTableViewController.h"
 #import "OptionsViewController.h"
 #import "JobsViewController.h"
+#import "SplashViewController.h"
 
 @interface InitialViewController ()
 
@@ -22,21 +23,32 @@
 {
     
     if (self = [super initWithCoder:aDecoder]) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        self = [super initWithCenterViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalculateTableViewController"]
-                                leftViewController:[storyboard instantiateViewControllerWithIdentifier:@"JobsViewController"]];
-        [self setLeftSize:50.0];
-//        [self setRightSize:115.0];
         
-        CalculateTableViewController *cvc = (CalculateTableViewController *)[(UINavigationController *)self.centerController topViewController];
+        self = [self _setupMainStoryboard];
         
-//        OptionsViewController *ovc = (OptionsViewController *)[(UINavigationController *)self.leftController topViewController];
-        JobsViewController *jvc = (JobsViewController *)[(UINavigationController *)self.rightController topViewController];
-//        NSLog(@"ovc %@", ovc);
-//        ovc.delegate = cvc;
-        jvc.delegate = cvc;
     }
     return self;
 }
+
+
+
+- (id)_setupMainStoryboard;
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    id sb = [super initWithCenterViewController:[storyboard instantiateViewControllerWithIdentifier:@"CalculateTableViewController"]
+                            leftViewController:[storyboard instantiateViewControllerWithIdentifier:@"JobsViewController"]];
+    [self setLeftSize:50.0];
+    //        [self setRightSize:115.0];
+    
+    CalculateTableViewController *cvc = (CalculateTableViewController *)[(UINavigationController *)self.centerController topViewController];
+    
+    //        OptionsViewController *ovc = (OptionsViewController *)[(UINavigationController *)self.leftController topViewController];
+    JobsViewController *jvc = (JobsViewController *)[(UINavigationController *)self.rightController topViewController];
+    //        NSLog(@"ovc %@", ovc);
+    //        ovc.delegate = cvc;
+    jvc.delegate = cvc;
+    return sb;
+}
+
 
 @end
