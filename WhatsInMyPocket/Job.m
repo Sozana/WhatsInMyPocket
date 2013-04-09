@@ -27,7 +27,7 @@
         _ID = [decoder decodeObjectForKey:@"ID"];
         self.name = [decoder decodeObjectForKey:@"name"];
         self.options = [decoder decodeObjectForKey:@"options"];
-        self.isSelected = [decoder decodeBoolForKey:@"isSelected"];
+        _isSelected = [decoder decodeBoolForKey:@"isSelected"];
     }
     return self;
 }
@@ -40,6 +40,10 @@
     [encoder encodeBool:_isSelected forKey:@"isSelected"];
 }
 
+- (void)toggleSelected;
+{
+    _isSelected = !_isSelected;
+}
 
 - (void)setName:(NSString *)name;
 {

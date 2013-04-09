@@ -85,11 +85,11 @@
 {
     NSInteger rows = 1;
     Job *job = [_jobs objectAtIndex:section];
-    if (job.isSelected || [job isEqual:_selectedJob]) {
-        rows = [job.options count] + 1;
+    if (job.isSelected) {
+        rows = [job.options count];
     }
-    NSLog(@"section %d rows %d",section, rows);
     return rows;
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -176,41 +176,37 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    JobTableCell *cell = (JobTableCell *)[tableView cellForRowAtIndexPath:indexPath];
-    Job *job = cell.job;
-    _selectedJob = job;
-    BOOL deselect = job.isSelected;
-    [cell toggleSelected];
+    Job *job = [_jobs objectAtIndex:indexPath.section];
     
-    NSLog(@"indexPath %d", indexPath.section);
-    int cnt = [cell.job.options count];
-    
-    NSLog(@"%d", cnt);
-    
-    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:cnt];
-    for (int i=1; i<=cnt; i++) {
-        NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:indexPath.section];
-        NSLog(@"ip %@", ip);
-        [arr addObject:ip];
-    }
-
-    [tableView reloadData];
-
-    return;
-    // TODO: Fix the animated updates!
-    for (Job *jj in _jobs) {
-        if (NO == jj.isSelected) {
+    int count = [_jobs count];
+    for (int i=0; i<count; i++){
+        Job *currentJob = [_jobs objectAtIndex:i];
+        
+        int cnt = [currentJob.options count];
+        NSArray *ips = [self _indexPathsWithCount:cnt forSection:i];
+        if (currentJob.isSelected) {
+            [currentJob toggleSelected];
+            [tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationTop];
             
-            [tableView insertRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationTop];
-        } else if(deselect) {
-            
-            [tableView deleteRowsAtIndexPaths:arr withRowAnimation:UITableViewRowAnimationTop];
+        }else if([job isEqual:currentJob] && NO == currentJob.isSelected){
+            [currentJob toggleSelected];
+            [tableView insertRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationTop];
         }
     }
+
 }
 
 
-
+- (NSArray *)_indexPathsWithCount:(NSInteger)cnt forSection:(NSInteger)section;
+{
+    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:cnt];
+    for (int i=1; i<cnt; i++) {
+        NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:section];
+        NSLog(@"ip %@", ip);
+        [arr addObject:ip];
+    }
+    return arr;
+}
 
 #pragma mark - TextFieldDelegate
 

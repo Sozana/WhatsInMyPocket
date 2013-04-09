@@ -52,7 +52,7 @@
 {
     NSLog(@"%@ _setSelected %d",self.job.name, selected);
     _isSelected = selected;
-    _job.isSelected = selected;
+   // _job.isSelected = selected;
     NSString *name = (_isSelected) ? @"MinusImage" : @"PlusImage";
     
 //    [self _setImageWithName:name];

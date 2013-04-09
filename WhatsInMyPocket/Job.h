@@ -13,7 +13,9 @@
 @property (nonatomic, readonly) NSString *ID;
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, strong) NSArray *options;
-@property BOOL isSelected;
+@property (readonly) BOOL isSelected;
+
+- (void)toggleSelected;
 
 - (id)initWithName:(NSString *)name;
 - (void)setName:(NSString *)name;
