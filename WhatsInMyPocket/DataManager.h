@@ -19,5 +19,7 @@
 - (NSArray *)options;
 - (NSArray *)jobs;
 - (Job *)currentJob;
+- (Job *)addJobNamed:(NSString *)name;
+
 
 @end

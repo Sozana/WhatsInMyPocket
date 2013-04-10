@@ -25,7 +25,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _jobs = [[[DataManager sharedManager] jobs] mutableCopy];
+    NSArray *jobs = [[DataManager sharedManager] jobs];
+    _jobs = (nil == jobs) ? [NSMutableArray array] : [jobs mutableCopy];
     NSLog(@"_jobs %@", _jobs);
     
     self.tableView.tableFooterView = [[UIView alloc] init];
@@ -66,17 +67,23 @@
 
 - (void)_addJobWithName:(NSString *)name;
 {
-    Job *job = [[Job alloc] initWithName:name];
-    job.options = [[DataManager sharedManager] options];
-    [_jobs insertObject:job atIndex:0];
-    NSLog(@"_jobs %@", _jobs);
-    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+    Job *job = [[DataManager sharedManager] addJobNamed:name];
+    if (nil == job) {
+        // alert error
+    }else{
+        self.tableView.tableHeaderView = nil;
+        [_jobs insertObject:job atIndex:0];
+        NSLog(@"_jobs %@", _jobs);
+        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+        [self _setSelectedJob:job];
+    }
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSLog(@"%d", [_jobs count]);
     return [_jobs count];
 }
 
@@ -177,7 +184,13 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     Job *job = [_jobs objectAtIndex:indexPath.section];
-    
+    [self _setSelectedJob:job];
+
+
+}
+
+- (void)_setSelectedJob:(Job *)job;
+{
     int count = [_jobs count];
     for (int i=0; i<count; i++){
         Job *currentJob = [_jobs objectAtIndex:i];
@@ -186,17 +199,14 @@
         NSArray *ips = [self _indexPathsWithCount:cnt forSection:i];
         if (currentJob.isSelected) {
             [currentJob toggleSelected];
-            [tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationTop];
+            [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationTop];
             
         }else if([job isEqual:currentJob] && NO == currentJob.isSelected){
             [currentJob toggleSelected];
-            [tableView insertRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationTop];
+            [self.tableView insertRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationTop];
         }
     }
-
 }
-
-
 - (NSArray *)_indexPathsWithCount:(NSInteger)cnt forSection:(NSInteger)section;
 {
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:cnt];

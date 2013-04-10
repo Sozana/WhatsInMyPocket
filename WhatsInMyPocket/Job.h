@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Job : NSObject
+@interface Job : NSObject <NSCoding>
 
 @property (nonatomic, readonly) NSString *ID;
 @property (nonatomic, readonly) NSString *name;

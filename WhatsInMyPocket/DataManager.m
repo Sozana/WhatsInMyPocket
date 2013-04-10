@@ -17,6 +17,11 @@
 }
 
 @end
+
+NSString *const kDataKey_Jobs = @"Jobs";
+NSString *const kDataKey_Options = @"Options";
+
+
 @implementation DataManager
 
 + (DataManager *)sharedManager;
@@ -39,8 +44,9 @@
 - (id)init;
 {
     if (self = [super init]) {
-        [self _loadOptions];
-        [self _loadJobs];
+//        [self _loadOptions];
+//        [self _loadJobs];
+        [self _loadData];
         if ([_allJobs count]) {
             self.currentJob = [_allJobs objectAtIndex:0];
         }
@@ -50,7 +56,7 @@
     return self;
 }
 
-- (void)_loadOptions;
+- (NSArray *)_options;
 {
    NSArray *opts = @[
                          //                         @"Job Name",
@@ -71,11 +77,11 @@
         Option *o = [[Option alloc] initWithName:s];
         [arr addObject:o];
     }
-    NSLog(@"%@", arr);
-    _allOptions = arr;
+//    NSLog(@"%@", arr);
+    return arr;
 }
 
-- (void)_loadJobs;
+- (NSArray *)_jobs;
 {
     NSArray *dummyJobs = @[@"Apple", @"CBS", @"Ikea"];
     //NSArray *dummyJobs = @[];
@@ -85,7 +91,7 @@
         job.options = _allOptions;
         [arr addObject:job];
     }
-    _allJobs = arr;
+    return arr;
 }
 
 //- (Job *)currentJob;
@@ -95,6 +101,23 @@
 //    job.name = @"Default Job";
 //    return job;
 //}
+- (Job *)addJobNamed:(NSString *)name;
+{
+    for (Job *job in _allJobs){
+        if ([job.name isEqualToString:name]) {
+            return nil;
+        }
+    }
+    Job *job = [[Job alloc] initWithName:name];
+    job.options = [self options];
+    NSMutableArray *arr = (nil == _allJobs) ? [NSMutableArray array] : [_allJobs mutableCopy];
+    [arr addObject:job];
+    _allJobs = arr;
+    NSLog(@"%@", _allJobs);
+    
+    [self save];
+    return job;
+}
 
 - (NSArray *)options;
 {
@@ -127,12 +150,21 @@
 - (void)_loadData;
 {
     NSDictionary *data = [NSKeyedUnarchiver unarchiveObjectWithFile:[self _dataFilePath]];
+    if (nil == data) {
+        _allOptions = [self _options];
+    }else{
+        _allJobs = [data objectForKey:kDataKey_Jobs];
+        _allOptions = [data objectForKey:kDataKey_Options];
+    }
     NSLog(@"data %@", data);
 }
 
 - (void)_saveData;
 {
-    NSDictionary *data = @{@"Jobs" : _allJobs, @"Options" : _allOptions};
+    if (nil == _allJobs || nil == _allOptions) {
+        return;
+    }
+    NSDictionary *data = @{kDataKey_Jobs : _allJobs, kDataKey_Options : _allOptions};
     NSLog(@"data %@", data);
     [NSKeyedArchiver archiveRootObject:data toFile:[self _dataFilePath]];
 }

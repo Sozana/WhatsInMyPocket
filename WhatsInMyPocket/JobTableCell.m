@@ -27,14 +27,7 @@
     return self;
 }
 
-- (void)awakeFromNib;
-{
-    [self _setSelected:NO];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(_jobDidChange:)
-                                                 name:kJobSelectedNotification
-                                               object:nil];
-}
+
 
 - (void)setJob:(Job *)job;
 {
@@ -45,7 +38,6 @@
 - (void)toggleSelected;
 {
     [self _setSelected:(_isSelected) ? NO : YES];
-    [[NSNotificationCenter defaultCenter] postNotificationName:kJobSelectedNotification object:_job];
 }
 
 - (void)_setSelected:(BOOL)selected;
@@ -59,14 +51,6 @@
      self.indicatorImage.image = [UIImage imageNamed:name];
 }
 
-- (void)_jobDidChange:(NSNotification *)notification;
-{
-    Job *job = (Job *)notification.object;
-    if (NO == [job isEqual:_job]) {
-        [self _setSelected:NO];
-    }
-
-}
 
 - (void)_setImageWithName:(NSString *)name;
 {
@@ -81,9 +65,6 @@
     // Configure the view for the selected state
 }
 
-- (void)dealloc;
-{
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-}
+
 
 @end

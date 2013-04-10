@@ -22,7 +22,7 @@
 {
     if (self = [super init]) {
         _ID = [decoder decodeObjectForKey:@"ID"];
-        _name = [decoder decodeObjectForKey:@"value"];
+        _name = [decoder decodeObjectForKey:@"name"];
         _value = [decoder decodeObjectForKey:@"value"];
         
     }

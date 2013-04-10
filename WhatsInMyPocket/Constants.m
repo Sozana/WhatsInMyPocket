@@ -8,4 +8,3 @@
 
 #import "Constants.h"
 
-NSString *const kJobSelectedNotification = @"JobSelectedNotification";
