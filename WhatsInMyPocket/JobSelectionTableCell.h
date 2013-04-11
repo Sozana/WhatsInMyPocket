@@ -10,6 +10,9 @@
 
 @interface JobSelectionTableCell : UITableViewCell
 
+@property (readonly) BOOL isSelected;
+
 - (void)toggleSelected;
+- (void)setIncluded:(BOOL)included;
 
 @end

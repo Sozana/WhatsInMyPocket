@@ -28,6 +28,8 @@
         self.name = [decoder decodeObjectForKey:@"name"];
         self.options = [decoder decodeObjectForKey:@"options"];
         _isSelected = [decoder decodeBoolForKey:@"isSelected"];
+        _includeInCalculation = [decoder decodeBoolForKey:@"includeInCalculation"];
+        
     }
     return self;
 }
@@ -38,6 +40,7 @@
     [encoder encodeObject:_name forKey:@"name"];
     [encoder encodeObject:_options forKey:@"options"];
     [encoder encodeBool:_isSelected forKey:@"isSelected"];
+    [encoder encodeBool:_includeInCalculation forKey:@"includeInCalculation"];
 }
 
 - (void)toggleSelected;

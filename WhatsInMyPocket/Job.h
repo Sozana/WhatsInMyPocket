@@ -14,6 +14,7 @@
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, strong) NSArray *options;
 @property (readonly) BOOL isSelected;
+@property BOOL includeInCalculation;
 
 - (void)toggleSelected;
 

@@ -125,6 +125,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    return 1;
     NSInteger cnt = [_jobs count];
     return cnt;
 }
@@ -145,6 +146,7 @@
         cell = (JobSelectionTableCell *)[tableView dequeueReusableCellWithIdentifier:@"JobSelectionCell" forIndexPath:indexPath];
         Job *job = [_jobs objectAtIndex:indexPath.row];
         NSLog(@"%@", job.name);
+        [(JobSelectionTableCell *)cell setIncluded:job.includeInCalculation];
         text = job.name;
         
     }else{
@@ -216,13 +218,16 @@
     if ([cell isKindOfClass:[AddJobTableCell class]]) {
         [self showJobs:nil];
     }else{
+        Job *job = [_jobs objectAtIndex:indexPath.row];
         [(JobSelectionTableCell *)cell toggleSelected];
+        job.includeInCalculation = cell.isSelected;
+        [[DataManager sharedManager] save];
     }
     
     
     // Navigation logic may go here. Create and push another view controller.
     /*
-    *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+    *detailViewController = [[  alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];

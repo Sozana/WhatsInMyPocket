@@ -9,26 +9,24 @@
 #import "JobSelectionTableCell.h"
 @interface JobSelectionTableCell ()
 {
-    BOOL _isSelected;
+//    BOOL _isSelected;
 }
 
 @end
 @implementation JobSelectionTableCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
-{
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
-    if (self) {
-        _isSelected = YES;
-    }
-    return self;
-}
 
 - (void)toggleSelected;
 {
-    _isSelected = !_isSelected;
-    NSLog(@"_isSelected %d", _isSelected);
-    self.accessoryType = (_isSelected) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    BOOL isSelected = !_isSelected;
+    NSLog(@"_isSelected %d", isSelected);
+    [self setIncluded:isSelected];
+}
+
+- (void)setIncluded:(BOOL)included;
+{
+    _isSelected = included;
+    self.accessoryType = (included) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
 }
 
