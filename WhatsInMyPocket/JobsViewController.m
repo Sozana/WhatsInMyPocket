@@ -70,6 +70,7 @@
     Job *job = [[DataManager sharedManager] addJobNamed:name];
     if (nil == job) {
         // alert error
+        NSLog(@"Job exists" );
     }else{
         self.tableView.tableHeaderView = nil;
         [_jobs insertObject:job atIndex:0];
@@ -93,6 +94,8 @@
 {
     NSInteger rows = 1;
     Job *job = [_jobs objectAtIndex:section];
+    NSLog(@"%@", job.name);
+    
     if (job.isSelected) {
         rows = [job.options count];
     }
@@ -158,7 +161,12 @@
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Return NO if you do not want the specified item to be editable.
+// TODO:Fix crash for when deleting a job if a section is opened!
+    for (Job *job in _jobs) {
+        if (job.isSelected) {
+            return NO;
+        }
+    }
     return YES;
 }
 
@@ -182,9 +190,9 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 - (void)_deleteJobAtIndexPath:(NSIndexPath *)indexPath
 {
-    Job *job = [_jobs objectAtIndex:indexPath.row];
+    Job *job = [_jobs objectAtIndex:indexPath.section];
     [[DataManager sharedManager] deleteJob:job];
-    [_jobs removeObjectAtIndex:indexPath.row];
+    [_jobs removeObjectAtIndex:indexPath.section];
     [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section]
                   withRowAnimation:UITableViewRowAnimationFade];
     if ([_jobs count] < 1) {

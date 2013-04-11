@@ -9,3 +9,6 @@
 #import <Foundation/Foundation.h>
 
 
+extern NSString *const kJobsUpdatedNotification;
+extern NSString *const kNotificationKey_JobAdded;
+extern NSString *const kNotificationKey_JobDeleted;

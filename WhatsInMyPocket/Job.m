@@ -63,7 +63,8 @@
 
 - (NSString *)description;
 {
-    return [NSString stringWithFormat:@"%@ - %@",_name, _options];
+    
+    return [NSString stringWithFormat:@"(%@) %@",[super description], _name];
 }
 
 @end

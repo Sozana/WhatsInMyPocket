@@ -20,7 +20,7 @@
 
 @interface CalculateTableViewController ()
 {
-    NSArray *_jobs;
+    NSMutableArray *_jobs;
     NSMutableArray *_selectedJobs;
     SplashViewController *_splashViewController;
 }
@@ -28,6 +28,10 @@
 
 @implementation CalculateTableViewController
 
+- (void)awakeFromNib;
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_jobsDidChange:) name:kJobsUpdatedNotification object:nil];
+}
 
 - (void)viewDidLoad
 {
@@ -37,7 +41,7 @@
     [self presentViewController:_splashViewController animated:NO completion:nil];
     [self performSelector:@selector(_removeSplash) withObject:nil afterDelay:4];
 
-    _jobs = [DataManager sharedManager].jobs;
+    _jobs = [[[DataManager sharedManager] jobs] mutableCopy];
     _selectedJobs = [NSMutableArray arrayWithCapacity:[_jobs count]];
     NSLog(@"_jobs %@", _jobs);
     
@@ -51,6 +55,25 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     
+}
+
+- (void)_jobsDidChange:(NSNotification *)notification;
+{
+    [notification.object enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        
+        if ([key isEqualToString:kNotificationKey_JobAdded] && nil != obj) {
+            [_jobs insertObject:obj atIndex:0];
+            [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]
+                                  withRowAnimation:UITableViewRowAnimationTop];
+        }else if([key isEqualToString:kNotificationKey_JobDeleted] && nil != obj){
+            NSInteger index = [_jobs indexOfObject:obj];
+
+            [_jobs removeObjectIdenticalTo:obj];
+            [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]
+                                  withRowAnimation:UITableViewRowAnimationFade];
+        }
+
+    }];
 }
 
 - (void)_removeSplash;
@@ -102,12 +125,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    NSInteger cnt = [_jobs count];
+    return cnt;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSInteger cnt = [_jobs count];
+    NSLog(@"cnt %d", cnt);
+    return cnt;
     return (cnt) ? cnt : 1;
 }
 

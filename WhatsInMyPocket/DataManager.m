@@ -7,6 +7,7 @@
 //
 
 #import "DataManager.h"
+#import "Constants.h"
 #import "Option.h"
 #import "Job.h"
 
@@ -103,6 +104,7 @@ NSString *const kDataKey_Options = @"Options";
 //}
 - (Job *)addJobNamed:(NSString *)name;
 {
+    NSLog(@"_allJobs %@", _allJobs);
     for (Job *job in _allJobs){
         if ([job.name isEqualToString:name]) {
             return nil;
@@ -113,17 +115,24 @@ NSString *const kDataKey_Options = @"Options";
     NSMutableArray *arr = (nil == _allJobs) ? [NSMutableArray array] : [_allJobs mutableCopy];
     [arr addObject:job];
     _allJobs = arr;
-    NSLog(@"%@", _allJobs);
-    
+    NSDictionary *change = @{kNotificationKey_JobAdded : job};
+    [[NSNotificationCenter defaultCenter] postNotificationName:kJobsUpdatedNotification object:change];
     [self save];
     return job;
 }
 
+
+
 - (void)deleteJob:(Job *)job;
 {
+    NSLog(@"job %@", job);
+    
     NSMutableArray *arr = [_allJobs mutableCopy];
     [arr removeObjectIdenticalTo:job];
     _allJobs = arr;
+    NSLog(@"deleteJob %@", _allJobs);
+    NSDictionary *change = @{kNotificationKey_JobDeleted : job};
+    [[NSNotificationCenter defaultCenter] postNotificationName:kJobsUpdatedNotification object:change];
     [self save];
 }
 
@@ -173,7 +182,7 @@ NSString *const kDataKey_Options = @"Options";
         return;
     }
     NSDictionary *data = @{kDataKey_Jobs : _allJobs, kDataKey_Options : _allOptions};
-    NSLog(@"data %@", data);
+    NSLog(@"_saveData %@", data);
     [NSKeyedArchiver archiveRootObject:data toFile:[self _dataFilePath]];
 }
 
