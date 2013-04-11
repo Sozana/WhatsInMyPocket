@@ -20,6 +20,6 @@
 - (NSArray *)jobs;
 - (Job *)currentJob;
 - (Job *)addJobNamed:(NSString *)name;
-
+- (void)deleteJob:(Job *)job;
 
 @end

@@ -29,12 +29,12 @@
     _jobs = (nil == jobs) ? [NSMutableArray array] : [jobs mutableCopy];
     NSLog(@"_jobs %@", _jobs);
     
-    self.tableView.tableFooterView = [[UIView alloc] init];
-    
-    self.tableView.tableHeaderView = ([_jobs count]) ? nil : _noJobsView;
+    [self _setNoJobsView];
     
 
 }
+
+
 - (IBAction)addJob:(UIBarButtonItem *)sender;
 {
     UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Job Name"
@@ -74,7 +74,8 @@
         self.tableView.tableHeaderView = nil;
         [_jobs insertObject:job atIndex:0];
         NSLog(@"_jobs %@", _jobs);
-        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationTop];
+        [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
+                      withRowAnimation:UITableViewRowAnimationTop];
         [self _setSelectedJob:job];
     }
 }
@@ -118,44 +119,7 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section;
 {
     CGFloat height = 150.0;
@@ -173,6 +137,8 @@
     }
     return height;
 }
+
+
 - (void)tableView:(UITableView *)tableView didEndEditingRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -187,6 +153,49 @@
     [self _setSelectedJob:job];
 
 
+}
+
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    return UITableViewCellEditingStyleDelete;
+}
+
+- (void)tableView:(UITableView *)tableView
+commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"indexPath %@", indexPath);
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self _deleteJobAtIndexPath:indexPath];
+        
+    }
+}
+
+#pragma mark - Private
+
+- (void)_deleteJobAtIndexPath:(NSIndexPath *)indexPath
+{
+    Job *job = [_jobs objectAtIndex:indexPath.row];
+    [[DataManager sharedManager] deleteJob:job];
+    [_jobs removeObjectAtIndex:indexPath.row];
+    [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:indexPath.section]
+                  withRowAnimation:UITableViewRowAnimationFade];
+    if ([_jobs count] < 1) {
+        [self _setNoJobsView];
+    }
+    
+}
+- (void)_setNoJobsView;
+{
+    self.tableView.tableFooterView = [[UIView alloc] init];
+    self.tableView.tableHeaderView = ([_jobs count]) ? nil : _noJobsView;
 }
 
 - (void)_setSelectedJob:(Job *)job;

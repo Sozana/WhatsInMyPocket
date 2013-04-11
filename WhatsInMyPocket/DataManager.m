@@ -119,6 +119,14 @@ NSString *const kDataKey_Options = @"Options";
     return job;
 }
 
+- (void)deleteJob:(Job *)job;
+{
+    NSMutableArray *arr = [_allJobs mutableCopy];
+    [arr removeObjectIdenticalTo:job];
+    _allJobs = arr;
+    [self save];
+}
+
 - (NSArray *)options;
 {
     NSLog(@"%@", _allOptions);

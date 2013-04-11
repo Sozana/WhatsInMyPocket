@@ -22,12 +22,39 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
+
     }
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationDuration:0.0f];
+    
 
+    CGRect frm = self.contentView.frame;
+    for (UIView *subview in self.subviews) {
+        NSString *className = NSStringFromClass([subview class]);
+        if ([className isEqualToString:@"UITableViewCellDeleteConfirmationControl"]) {
+            CGRect newFrame = subview.frame;
+            newFrame.origin.x = frm.size.width - 60;
+            subview.frame = newFrame;
+        }else if ([className isEqualToString:@"UITableViewCellEditControl"]) {
+            CGRect newFrame = subview.frame;
+            newFrame.origin.x = 100;
+            subview.frame = newFrame;
+        }else if ([className isEqualToString:@"UITableViewCellReorderControl"]) {
+            CGRect newFrame = subview.frame;
+            newFrame.origin.x = 200;
+            subview.frame = newFrame;
+        }
+    }
+    [UIView commitAnimations];
+}
 
 - (void)setJob:(Job *)job;
 {
