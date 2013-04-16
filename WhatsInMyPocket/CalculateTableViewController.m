@@ -38,8 +38,10 @@
     [super viewDidLoad];
 
     _splashViewController = [[SplashViewController alloc] init];
-    [self presentViewController:_splashViewController animated:NO completion:nil];
-    [self performSelector:@selector(_removeSplash) withObject:nil afterDelay:4];
+    _splashViewController.delegate = self;
+    [self presentViewController:_splashViewController animated:NO completion:^(void){
+        [_splashViewController showNameFieldIfNeeded];
+    }];
 
     _jobs = [[[DataManager sharedManager] jobs] mutableCopy];
     _selectedJobs = [NSMutableArray arrayWithCapacity:[_jobs count]];
@@ -48,50 +50,53 @@
     self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
     
     [[DataManager sharedManager] save];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    
+    [self _setNoJobsView];
+
+}
+
+#pragma mark - SplashViewControllerDelegate
+
+- (void)splashViewControllerShouldBeRemoved:(SplashViewController *)vc;
+{
+    [self dismissViewControllerAnimated:YES completion:^(void) {
+        _splashViewController = nil;
+    }];
 }
 
 - (void)_jobsDidChange:(NSNotification *)notification;
 {
-    [notification.object enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    [notification.object enumerateKeysAndObjectsUsingBlock:^(id key, Job *job, BOOL *stop) {
         
-        if ([key isEqualToString:kNotificationKey_JobAdded] && nil != obj) {
-            [_jobs insertObject:obj atIndex:0];
+        if ([key isEqualToString:kNotificationKey_JobAdded] && nil != job) {
+            [job setIncludeInCalculation:YES];
+            [_jobs insertObject:job atIndex:0];
             [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:0]]
                                   withRowAnimation:UITableViewRowAnimationTop];
-        }else if([key isEqualToString:kNotificationKey_JobDeleted] && nil != obj){
-            NSInteger index = [_jobs indexOfObject:obj];
+        }else if([key isEqualToString:kNotificationKey_JobDeleted] && nil != job){
+            NSInteger index = [_jobs indexOfObject:job];
 
-            [_jobs removeObjectIdenticalTo:obj];
+            [_jobs removeObjectIdenticalTo:job];
             [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:index inSection:0]]
                                   withRowAnimation:UITableViewRowAnimationFade];
         }
 
     }];
+    [self _setNoJobsView];
 }
 
-- (void)_removeSplash;
+- (void)_setNoJobsView;
 {
-    [self dismissViewControllerAnimated:YES completion:^(void) {
-        _splashViewController = nil;
-    }];
-//    [UIView animateWithDuration:1.0f
-//                     animations:^{
-//                         _splashViewController.view.alpha = 0.0f;
-//                     }
-//                     completion:^(BOOL finished) {
-//                         if (finished) {
-//                             
-//                         }
-//                     }];
-    
+//    self.tableView.tableFooterView = [[UIView alloc] init];
+    if ([_jobs count]) {
+        self.tableView.tableHeaderView = nil;
+    }else{
+        NSLog(@"_noJobsView %@", _noJobsView);
+        self.tableView.tableHeaderView = _noJobsView;
+    }
+//    self.tableView.tableHeaderView = ([_jobs count]) ? nil : _noJobsView;
 }
+
 
 - (void)bababoi;
 {
@@ -116,7 +121,7 @@
 {
     [self.viewDeckController toggleRightViewAnimated:YES];
 }
-- (IBAction)showJobs:(UIBarButtonItem *)sender;
+- (IBAction)showJobs:(id)sender;
 {
     [self.viewDeckController toggleLeftViewAnimated:YES];
 }
@@ -149,11 +154,12 @@
         [(JobSelectionTableCell *)cell setIncluded:job.includeInCalculation];
         text = job.name;
         
-    }else{
-        cell = [tableView dequeueReusableCellWithIdentifier:@"AddJobTableCell" forIndexPath:indexPath];
-        cell.textLabel.textAlignment = NSTextAlignmentCenter;
-        text = @"Add Job";
     }
+//    else{
+//        cell = [tableView dequeueReusableCellWithIdentifier:@"AddJobTableCell" forIndexPath:indexPath];
+//        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+//        text = @"Add Job";
+//    }
     cell.textLabel.text = text;
     
     
@@ -162,52 +168,18 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;    // fixed font style. use custom view (UILabel) if you want something different
 {
-    NSString *title = nil;
-    if (section == 0) {
-        title = @"My Jobs";
-    }
+    NSString *title = ([_jobs count] < 1) ? nil : @"My Jobs";
+    NSLog(@"ttttitt %@", title);
     return title;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    CGFloat height = ([_jobs count] < 1) ? 0.0 : 30.0;
+    return height;
 }
 #pragma mark - Table view delegate
 
@@ -223,19 +195,15 @@
         job.includeInCalculation = cell.isSelected;
         [[DataManager sharedManager] save];
     }
-    
-    
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-    *detailViewController = [[  alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+
 }
 
 
 
+- (void)dealloc;
+{
+    self.noJobsView = nil;
+}
 
 
 @end

@@ -19,9 +19,16 @@
 		679F4E8316D9C17100E91BFF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */; };
 		679F4E8E16D9C44300E91BFF /* CalculateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */; };
 		679F4E9116D9C57200E91BFF /* OptionInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E9016D9C57200E91BFF /* OptionInputCell.m */; };
+		CDA331DC171D12EC00908521 /* UIDevice+WIMP.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA331DB171D12EC00908521 /* UIDevice+WIMP.m */; };
+		CDA331DF171D194E00908521 /* PocketImageSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA331DD171D194E00908521 /* PocketImageSmall.png */; };
+		CDA331E0171D194E00908521 /* PocketImageSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA331DE171D194E00908521 /* PocketImageSmall@2x.png */; };
+		CDA331E3171D1DF800908521 /* NSUserDefaults+WIMP.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA331E2171D1DF800908521 /* NSUserDefaults+WIMP.m */; };
+		CDA331EE171D239A00908521 /* WhatsInMyPocketCopyText.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA331EC171D239A00908521 /* WhatsInMyPocketCopyText.png */; };
+		CDA331EF171D239A00908521 /* WhatsInMyPocketCopyText@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA331ED171D239A00908521 /* WhatsInMyPocketCopyText@2x.png */; };
+		CDA331F1171D28B600908521 /* SplashViewController_3-5Inch.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDA331F0171D28B600908521 /* SplashViewController_3-5Inch.xib */; };
 		CDBD9F34170AB36A00C9B388 /* AppIcon-57.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBD9F33170AB36A00C9B388 /* AppIcon-57.png */; };
 		CDBD9F36170AB36F00C9B388 /* AppIcon-114.png in Resources */ = {isa = PBXBuildFile; fileRef = CDBD9F35170AB36F00C9B388 /* AppIcon-114.png */; };
-		CDBD9F3E170ABC6A00C9B388 /* SplashViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBD9F3D170ABC6A00C9B388 /* SplashViewController.xib */; };
+		CDBD9F3E170ABC6A00C9B388 /* SplashViewController_4Inch.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDBD9F3D170ABC6A00C9B388 /* SplashViewController_4Inch.xib */; };
 		CDEB4C96170AAC3B00893B67 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDEB4C94170AAC3B00893B67 /* SplashViewController.m */; };
 		CDEB4CA4170AB0E600893B67 /* LargeTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEB4C9C170AB0E600893B67 /* LargeTitle.png */; };
 		CDEB4CA5170AB0E600893B67 /* LargeTitle@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDEB4C9D170AB0E600893B67 /* LargeTitle@2x.png */; };
@@ -79,9 +86,18 @@
 		679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateTableViewController.m; sourceTree = "<group>"; };
 		679F4E8F16D9C57200E91BFF /* OptionInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionInputCell.h; sourceTree = "<group>"; };
 		679F4E9016D9C57200E91BFF /* OptionInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionInputCell.m; sourceTree = "<group>"; };
+		CDA331DA171D12EC00908521 /* UIDevice+WIMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+WIMP.h"; sourceTree = "<group>"; };
+		CDA331DB171D12EC00908521 /* UIDevice+WIMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+WIMP.m"; sourceTree = "<group>"; };
+		CDA331DD171D194E00908521 /* PocketImageSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PocketImageSmall.png; sourceTree = "<group>"; };
+		CDA331DE171D194E00908521 /* PocketImageSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PocketImageSmall@2x.png"; sourceTree = "<group>"; };
+		CDA331E1171D1DF800908521 /* NSUserDefaults+WIMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSUserDefaults+WIMP.h"; sourceTree = "<group>"; };
+		CDA331E2171D1DF800908521 /* NSUserDefaults+WIMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSUserDefaults+WIMP.m"; sourceTree = "<group>"; };
+		CDA331EC171D239A00908521 /* WhatsInMyPocketCopyText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = WhatsInMyPocketCopyText.png; sourceTree = "<group>"; };
+		CDA331ED171D239A00908521 /* WhatsInMyPocketCopyText@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "WhatsInMyPocketCopyText@2x.png"; sourceTree = "<group>"; };
+		CDA331F0171D28B600908521 /* SplashViewController_3-5Inch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "SplashViewController_3-5Inch.xib"; sourceTree = "<group>"; };
 		CDBD9F33170AB36A00C9B388 /* AppIcon-57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-57.png"; sourceTree = "<group>"; };
 		CDBD9F35170AB36F00C9B388 /* AppIcon-114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon-114.png"; sourceTree = "<group>"; };
-		CDBD9F3D170ABC6A00C9B388 /* SplashViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController.xib; sourceTree = "<group>"; };
+		CDBD9F3D170ABC6A00C9B388 /* SplashViewController_4Inch.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplashViewController_4Inch.xib; sourceTree = "<group>"; };
 		CDEB4C93170AAC3A00893B67 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
 		CDEB4C94170AAC3B00893B67 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
 		CDEB4C9C170AB0E600893B67 /* LargeTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LargeTitle.png; sourceTree = "<group>"; };
@@ -190,6 +206,7 @@
 				679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */,
 				CDEDCA5A16FFC3E100262DBC /* Constants.h */,
 				CDEDCA5B16FFC3E100262DBC /* Constants.m */,
+				CDA331D9171D12A500908521 /* Categories */,
 				CDBD9F3F170AC16A00C9B388 /* Managers */,
 				CDEDCA4F16FEC16B00262DBC /* Models */,
 				CDEDCA3616FD88A000262DBC /* ViewControllers */,
@@ -213,6 +230,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CDA331D9171D12A500908521 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CDA331DA171D12EC00908521 /* UIDevice+WIMP.h */,
+				CDA331DB171D12EC00908521 /* UIDevice+WIMP.m */,
+				CDA331E1171D1DF800908521 /* NSUserDefaults+WIMP.h */,
+				CDA331E2171D1DF800908521 /* NSUserDefaults+WIMP.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		CDBD9F3F170AC16A00C9B388 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,7 +257,8 @@
 				CDEDCA1A16FC47CF00262DBC /* InitialViewController.m */,
 				CDEB4C93170AAC3A00893B67 /* SplashViewController.h */,
 				CDEB4C94170AAC3B00893B67 /* SplashViewController.m */,
-				CDBD9F3D170ABC6A00C9B388 /* SplashViewController.xib */,
+				CDBD9F3D170ABC6A00C9B388 /* SplashViewController_4Inch.xib */,
+				CDA331F0171D28B600908521 /* SplashViewController_3-5Inch.xib */,
 			);
 			name = Root;
 			sourceTree = "<group>";
@@ -281,10 +310,14 @@
 		CDEDCA4316FD92B100262DBC /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				CDA331EC171D239A00908521 /* WhatsInMyPocketCopyText.png */,
+				CDA331ED171D239A00908521 /* WhatsInMyPocketCopyText@2x.png */,
 				CDEB4C9C170AB0E600893B67 /* LargeTitle.png */,
 				CDEB4C9D170AB0E600893B67 /* LargeTitle@2x.png */,
 				CDEB4C9E170AB0E600893B67 /* PocketImage.png */,
 				CDEB4C9F170AB0E600893B67 /* PocketImage@2x.png */,
+				CDA331DD171D194E00908521 /* PocketImageSmall.png */,
+				CDA331DE171D194E00908521 /* PocketImageSmall@2x.png */,
 				CDEDCA7417003B3500262DBC /* MinusImage.png */,
 				CDEDCA7517003B3500262DBC /* MinusImage@2x.png */,
 				CDEDCA7017003AD600262DBC /* PlusImage.png */,
@@ -394,7 +427,12 @@
 				CDEB4CA7170AB0E600893B67 /* PocketImage@2x.png in Resources */,
 				CDBD9F34170AB36A00C9B388 /* AppIcon-57.png in Resources */,
 				CDBD9F36170AB36F00C9B388 /* AppIcon-114.png in Resources */,
-				CDBD9F3E170ABC6A00C9B388 /* SplashViewController.xib in Resources */,
+				CDBD9F3E170ABC6A00C9B388 /* SplashViewController_4Inch.xib in Resources */,
+				CDA331DF171D194E00908521 /* PocketImageSmall.png in Resources */,
+				CDA331E0171D194E00908521 /* PocketImageSmall@2x.png in Resources */,
+				CDA331EE171D239A00908521 /* WhatsInMyPocketCopyText.png in Resources */,
+				CDA331EF171D239A00908521 /* WhatsInMyPocketCopyText@2x.png in Resources */,
+				CDA331F1171D28B600908521 /* SplashViewController_3-5Inch.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +462,8 @@
 				CDEDCA5F16FFF06B00262DBC /* JobSelectionTableCell.m in Sources */,
 				CDEDCA7A1700402B00262DBC /* AddJobTableCell.m in Sources */,
 				CDEB4C96170AAC3B00893B67 /* SplashViewController.m in Sources */,
+				CDA331DC171D12EC00908521 /* UIDevice+WIMP.m in Sources */,
+				CDA331E3171D1DF800908521 /* NSUserDefaults+WIMP.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

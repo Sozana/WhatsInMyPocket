@@ -8,6 +8,7 @@
 
 #import "DataManager.h"
 #import "Constants.h"
+#import "NSUserDefaults+WIMP.h"
 #import "Option.h"
 #import "Job.h"
 
@@ -19,6 +20,7 @@
 
 @end
 
+NSString *const kDataKey_Username = @"Username";
 NSString *const kDataKey_Jobs = @"Jobs";
 NSString *const kDataKey_Options = @"Options";
 
@@ -55,6 +57,16 @@ NSString *const kDataKey_Options = @"Options";
         NSLog(@"%@", _currentJob);
     }
     return self;
+}
+
+- (void)setUsername:(NSString *)username;
+{
+    [NSUserDefaults saveObjects:@[username] withKeys:@[kDataKey_Username]];
+}
+
+- (NSString *)username;
+{
+    return [NSUserDefaults objectForKey:kDataKey_Username];
 }
 
 - (NSArray *)_options;
