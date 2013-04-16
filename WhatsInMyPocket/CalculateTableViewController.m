@@ -93,7 +93,9 @@
     }else{
         NSLog(@"_noJobsView %@", _noJobsView);
         self.tableView.tableHeaderView = _noJobsView;
+        
     }
+    [self.tableView reloadData];
 //    self.tableView.tableHeaderView = ([_jobs count]) ? nil : _noJobsView;
 }
 
@@ -108,13 +110,6 @@
     self.resultLabel.text = @"$3276";
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // A change :)
-    // another change
-    
-}
 
 
 - (IBAction)showSelection:(UIBarButtonItem *)sender;
@@ -131,8 +126,6 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
-    NSInteger cnt = [_jobs count];
-    return cnt;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -150,37 +143,30 @@
     if ([_jobs count]) {
         cell = (JobSelectionTableCell *)[tableView dequeueReusableCellWithIdentifier:@"JobSelectionCell" forIndexPath:indexPath];
         Job *job = [_jobs objectAtIndex:indexPath.row];
-        NSLog(@"%@", job.name);
         [(JobSelectionTableCell *)cell setIncluded:job.includeInCalculation];
         text = job.name;
-        
     }
-//    else{
-//        cell = [tableView dequeueReusableCellWithIdentifier:@"AddJobTableCell" forIndexPath:indexPath];
-//        cell.textLabel.textAlignment = NSTextAlignmentCenter;
-//        text = @"Add Job";
-//    }
     cell.textLabel.text = text;
-    
-    
-    // Configure the cell...
-    
     return cell;
 }
 
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section;    // fixed font style. use custom view (UILabel) if you want something different
 {
-    NSString *title = ([_jobs count] < 1) ? nil : @"My Jobs";
-    NSLog(@"ttttitt %@", title);
+
+    NSString *name = [NSString stringWithFormat:@"%@'s Jobs", [[DataManager sharedManager] username]];
+    NSString *title = ([_jobs count] < 1) ? @"" : name;
+    NSLog(@"title %@", title);
+    
     return title;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    CGFloat height = ([_jobs count] < 1) ? 0.0 : 30.0;
-    return height;
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+//{
+//    CGFloat height = ([_jobs count] < 1) ? 0.0 : 30.0;
+//    return height;
+//}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -51,7 +51,7 @@
     if (nil == [dm username]) {
         [self _showEntryView];
     }else{
-        [self start:nil];
+        [self performSelector:@selector(_start) withObject:nil afterDelay:1];
     }
     
 }
@@ -78,9 +78,15 @@
     if (_nameField.text.length < 3) {
         _usernameLabel.font = [UIFont boldSystemFontOfSize:15];
         _usernameLabel.textColor = [UIColor redColor];
-        _usernameLabel.text = @"Please enter your user name";
+        _usernameLabel.text = @"Please enter your name";
         return;
     }
+    [[DataManager sharedManager] setUsername:_nameField.text];
+    [self _start];
+}
+
+- (void)_start;
+{
     [_delegate splashViewControllerShouldBeRemoved:self];
 }
 
