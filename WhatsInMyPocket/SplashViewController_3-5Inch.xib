@@ -86,7 +86,7 @@
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
-									<bytes key="NSRGB">MC44MTM1OTYxNDE2IDAuODEzNTk2MTQxNiAwLjgxMzU5NjE0MTYgMC41AA</bytes>
+									<bytes key="NSRGB">MC44MTM1OTYxNDE2IDAuNzY1Mzg3MDAxNiAwLjY3NDU5ODgwNDkgMC41AA</bytes>
 								</object>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
@@ -119,7 +119,6 @@
 								<string key="NSFrame">{{222, 41}, {73, 31}}</string>
 								<reference key="NSSuperview" ref="181513058"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -139,11 +138,11 @@
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC41AA</bytes>
 								</object>
-								<object class="IBUIFontDescription" key="IBUIFontDescription">
+								<object class="IBUIFontDescription" key="IBUIFontDescription" id="603310315">
 									<int key="type">2</int>
 									<double key="pointSize">15</double>
 								</object>
-								<object class="NSFont" key="IBUIFont">
+								<object class="NSFont" key="IBUIFont" id="1003666057">
 									<string key="NSName">Helvetica-Bold</string>
 									<double key="NSSize">15</double>
 									<int key="NSfFlags">16</int>
@@ -152,7 +151,7 @@
 							<object class="IBUILabel" id="150524735">
 								<reference key="NSNextResponder" ref="181513058"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{25, 11}, {270, 21}}</string>
+								<string key="NSFrame">{{25, 11}, {270, 30}}</string>
 								<reference key="NSSuperview" ref="181513058"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="826209378"/>
@@ -170,15 +169,8 @@
 								</object>
 								<nil key="IBUIHighlightedColor"/>
 								<int key="IBUIBaselineAdjustment">0</int>
-								<object class="IBUIFontDescription" key="IBUIFontDescription">
-									<int key="type">1</int>
-									<double key="pointSize">17</double>
-								</object>
-								<object class="NSFont" key="IBUIFont">
-									<string key="NSName">Helvetica</string>
-									<double key="NSSize">17</double>
-									<int key="NSfFlags">16</int>
-								</object>
+								<reference key="IBUIFontDescription" ref="603310315"/>
+								<reference key="IBUIFont" ref="1003666057"/>
 								<bool key="IBUIAdjustsFontSizeToFit">NO</bool>
 							</object>
 						</array>

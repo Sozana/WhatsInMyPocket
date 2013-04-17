@@ -43,7 +43,8 @@
         [_splashViewController showNameFieldIfNeeded];
     }];
 
-    _jobs = [[[DataManager sharedManager] jobs] mutableCopy];
+    NSArray *jobs = [[DataManager sharedManager] jobs];
+    _jobs = (nil != jobs) ? [jobs mutableCopy] : [NSMutableArray array];
     _selectedJobs = [NSMutableArray arrayWithCapacity:[_jobs count]];
     NSLog(@"_jobs %@", _jobs);
     
@@ -66,6 +67,7 @@
 
 - (void)_jobsDidChange:(NSNotification *)notification;
 {
+    
     [notification.object enumerateKeysAndObjectsUsingBlock:^(id key, Job *job, BOOL *stop) {
         
         if ([key isEqualToString:kNotificationKey_JobAdded] && nil != job) {
