@@ -7,8 +7,15 @@
 //
 
 #import "OptionInputCell.h"
+#import "DataManager.h"
 #import "Option.h"
 
+@interface OptionInputCell ()
+{
+    Option *_option;
+}
+
+@end
 @implementation OptionInputCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -28,15 +35,24 @@
 
 - (void)setOption:(Option *)option;
 {
-    self.label.text = option.name;
+    _option = option;
+    _label.text = option.name;
+    _inputField.text = option.value;
 }
 
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
 {
-    BOOL val = YES;
+    NSLog(@"%@", string);
+
+    string = [NSString stringWithFormat:@"%@%@", textField.text, string];
+    NSLog(@"%@", string);
     
+    BOOL val = [_option setValueWithString:string];
+    if (val) {
+        [[DataManager sharedManager] save];
+    }
     return val;
 }
 

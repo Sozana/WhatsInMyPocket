@@ -72,12 +72,11 @@ NSString *const kDataKey_Options = @"Options";
 - (NSArray *)_options;
 {
 
-    OptionType typeCount = OptionTypeCount;
     
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:OptionTypeCount];
     for (int i=0; i<OptionTypeCount; i++) {
         Option *o = [Option optionWithType:i];
-        [arr addObject:o];
+        [arr insertObject:o atIndex:i];
     }
 
     NSLog(@"%@", arr);

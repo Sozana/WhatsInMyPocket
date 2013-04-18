@@ -54,14 +54,13 @@
     _ID = [NSString stringWithFormat:@"%lu", (unsigned long)[_name hash]];
 }
 
-- (void)addOption:(Option *)option;
-{
-    
-}
 
-- (void)reimoveOption:(Option *)option;
+
+- (NSNumber *)calculate;
 {
+    NSNumber *result = @0;
     
+    return result;
 }
 
 - (NSString *)description;

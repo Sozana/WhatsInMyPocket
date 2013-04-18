@@ -15,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *label;
 
 - (void)setOption:(Option *)option;
+
 @end
