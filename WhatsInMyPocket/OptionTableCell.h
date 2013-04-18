@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Option.h"
 
-@interface OptionTableCell : UITableViewCell
+@interface OptionTableCell : UITableViewCell <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *label;
 @property (weak, nonatomic) IBOutlet UIImageView *checkMark;

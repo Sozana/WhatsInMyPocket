@@ -8,13 +8,31 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    OptionTypeMonthlyBase,
+    OptionTypeNumberOfMonths,
+    OptionTypeHours,
+    OptionTypeHoerlyRate,
+    OptionTypeTotalWholeSale,
+    OptionTypePercentage,
+    OptionTypeYearlySalary,
+    OptionTypeAfterTax,
+    OptionTypeBeforeTax,
+    OptionTypeTaxReturn,
+    OptionTypeCount,
+} OptionType;
+
 @interface Option : NSObject  <NSCoding>
 
 @property (nonatomic, readonly) NSString *ID;
-@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, copy) NSString *name;
 @property (nonatomic, readonly) NSString *value;
+@property OptionType type;
+@property (nonatomic, strong) NSCharacterSet *characterSet;
 
++ (Option *)optionWithType:(OptionType)type;
 - (id)initWithName:(NSString *)name;
 - (void)setName:(NSString *)name;
+- (BOOL)setValueWithString:(NSString *)string;
 
 @end

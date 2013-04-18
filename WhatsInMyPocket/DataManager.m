@@ -71,26 +71,16 @@ NSString *const kDataKey_Options = @"Options";
 
 - (NSArray *)_options;
 {
-   NSArray *opts = @[
-                         //                         @"Job Name",
-                         //              @"Date",
-                         @"Monthly Base",
-                         @"Number of Months",
-                         @"Hours",
-                         @"Hoerly Rate",
-                         @"Total Wholesale",
-                         @"Percentage",
-                         @"Yearly Salary",
-                         @"After Tax",
-                         @"Before Tax",
-                         @"Tax Return"];
+
+    OptionType typeCount = OptionTypeCount;
     
-    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:[opts count]];
-    for (NSString *s in opts) {
-        Option *o = [[Option alloc] initWithName:s];
+    NSMutableArray *arr = [NSMutableArray arrayWithCapacity:OptionTypeCount];
+    for (int i=0; i<OptionTypeCount; i++) {
+        Option *o = [Option optionWithType:i];
         [arr addObject:o];
     }
-//    NSLog(@"%@", arr);
+
+    NSLog(@"%@", arr);
     return arr;
 }
 
