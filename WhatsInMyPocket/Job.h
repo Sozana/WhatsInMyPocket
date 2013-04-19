@@ -20,5 +20,7 @@
 
 - (id)initWithName:(NSString *)name;
 - (void)setName:(NSString *)name;
+- (NSNumber *)calculate;
+- (BOOL)hasRequiredEntries;
 
 @end

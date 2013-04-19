@@ -94,10 +94,10 @@
 {
     NSInteger rows = 1;
     Job *job = [_jobs objectAtIndex:section];
-    NSLog(@"%@", job.name);
+    NSLog(@"%@", job.options);
     
     if (job.isSelected) {
-        rows = [job.options count];
+        rows = [job.options count] + 1;
     }
     return rows;
 
@@ -227,7 +227,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (NSArray *)_indexPathsWithCount:(NSInteger)cnt forSection:(NSInteger)section;
 {
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:cnt];
-    for (int i=1; i<cnt; i++) {
+    for (int i=1; i<=cnt; i++) {
         NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:section];
         NSLog(@"ip %@", ip);
         [arr addObject:ip];

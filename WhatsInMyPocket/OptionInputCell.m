@@ -56,6 +56,12 @@
     return val;
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField;
+{
+    [textField resignFirstResponder];
+    return YES;
+}
+
 //- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;        // return NO to disallow editing.
 //- (void)textFieldDidBeginEditing:(UITextField *)textField;           // became first responder
 //- (BOOL)textFieldShouldEndEditing:(UITextField *)textField;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end

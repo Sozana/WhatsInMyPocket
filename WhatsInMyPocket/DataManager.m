@@ -90,10 +90,56 @@ NSString *const kDataKey_Options = @"Options";
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:[dummyJobs count]];
     for (NSString *name in dummyJobs) {
         Job *job = [[Job alloc] initWithName:name];
-        job.options = _allOptions;
+        job.options = [self _options];
         [arr addObject:job];
     }
     return arr;
+}
+
+- (NSDictionary *)whatsInMyPocket;
+{
+    CGFloat result = 0.0f;
+    NSMutableArray *arr = [NSMutableArray array];
+    NSMutableArray *incomplete = [NSMutableArray array];
+    BOOL isIncomplete = NO;
+    for (Job *j in _allJobs) {
+        if (j.includeInCalculation) {
+            if (NO == [j hasRequiredEntries]) {
+                [incomplete addObject:j.name];
+                isIncomplete = YES;
+                continue;
+            }
+            NSNumber *num = [j calculate];
+            NSDictionary *currentResult = @{@"Result" : num, @"JobName" : j.name};
+            [arr addObject:currentResult];
+            result += [num floatValue];
+        }
+    }
+    if (isIncomplete) {
+        [self _alertForIncompleteJobEntriesInJobs:incomplete];
+        return nil;
+    }
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterLongStyle];
+    NSString *dateString = [formatter stringFromDate:[NSDate date]];
+    
+    NSDictionary *dict = @{@"Results" : arr,
+                           @"Total" : [NSNumber numberWithFloat:result],
+                           @"Date" : dateString,};
+    return dict;
+}
+
+- (void)_alertForIncompleteJobEntriesInJobs:(NSArray *)jobs;
+{
+    NSString *str = [jobs componentsJoinedByString:@", "];
+//    str = [str substringToIndex:[str length] - 2];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incomplete Jobs"
+                                                    message:[NSString stringWithFormat:@"Required values missing for: %@", str]
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:@"Ok", nil];
+    [alert show];
 }
 
 //- (Job *)currentJob;
@@ -112,13 +158,15 @@ NSString *const kDataKey_Options = @"Options";
         }
     }
     Job *job = [[Job alloc] initWithName:name];
-    job.options = [self options];
+    job.options = [self _options];
     NSMutableArray *arr = (nil == _allJobs) ? [NSMutableArray array] : [_allJobs mutableCopy];
     [arr addObject:job];
     _allJobs = arr;
     NSDictionary *change = @{kNotificationKey_JobAdded : job};
     [[NSNotificationCenter defaultCenter] postNotificationName:kJobsUpdatedNotification object:change];
     [self save];
+    NSLog(@"%@", job);
+    
     return job;
 }
 

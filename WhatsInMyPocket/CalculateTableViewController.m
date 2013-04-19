@@ -102,14 +102,12 @@
 }
 
 
-- (void)bababoi;
-{
-    
-}
 
 - (IBAction)whatsInMyPocket:(UIButton *)sender;
 {
-    self.resultLabel.text = @"$3276";
+    NSDictionary *result = [[DataManager sharedManager] whatsInMyPocket];
+    NSString *text = (nil != result) ? [NSString stringWithFormat:@"%@", [result objectForKey:@"Total"]] : @"?";
+    self.resultLabel.text = text;
 }
 
 

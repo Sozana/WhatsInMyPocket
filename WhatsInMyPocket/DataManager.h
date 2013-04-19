@@ -23,5 +23,6 @@
 - (Job *)currentJob;
 - (Job *)addJobNamed:(NSString *)name;
 - (void)deleteJob:(Job *)job;
+- (NSDictionary *)whatsInMyPocket;
 
 @end

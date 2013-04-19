@@ -54,13 +54,75 @@
     _ID = [NSString stringWithFormat:@"%lu", (unsigned long)[_name hash]];
 }
 
+- (BOOL)hasRequiredEntries;
+{
+    BOOL hasEntries = YES;
+    for (Option *o in _options) {
+        NSLog(@"%@ %@", o.name, o.value);
+        
+        if (o.type < OptionTypeCount && nil == o.value) {
+            hasEntries = NO;
+            break;
+        }
+    }
+    return hasEntries;
+}
+/*
+ 
+ OptionTypeMonthlyBase,
+ OptionTypeNumberOfMonths,
+ 
+ 
+ OptionTypeHours,
+ OptionTypeHourlyRate,
+ 
+
+ OptionTypeYearlySalary,
+ 
+ 
+ OptionTypeTotalWholeSale,
+ OptionTypePercentage,
+ 
+ OptionTypeAfterTax,
+ OptionTypeBeforeTax,
+ OptionTypeTaxReturn,
+ 
+ */
 
 
 - (NSNumber *)calculate;
 {
     NSNumber *result = @0;
+    // either monthly or hourly????
+    CGFloat totalMonthly = [self _totalMonthly];
+    CGFloat totalHourly = [self _totalHourly];
     
-    return result;
+    
+    NSString *totalWholeSale = [(Option *)[_options objectAtIndex:OptionTypeTotalWholeSale] value];
+    NSString *percentage = [(Option *)[_options objectAtIndex:OptionTypePercentage] value];
+    
+    NSString *yearSalary = [(Option *)[_options objectAtIndex:OptionTypeYearlySalary] value];
+    NSString *afterTax = [(Option *)[_options objectAtIndex:OptionTypeAfterTax] value];
+    NSString *beforeTax = [(Option *)[_options objectAtIndex:OptionTypeBeforeTax] value];
+    NSString *taxReturn = [(Option *)[_options objectAtIndex:OptionTypeTaxReturn] value];
+    
+    return [NSNumber numberWithFloat:totalMonthly];
+}
+
+- (CGFloat)_totalMonthly;
+{
+    NSString *monthlyBase = [(Option *)[_options objectAtIndex:OptionTypeMonthlyBase] value];
+    NSString *noOfMonths = [(Option *)[_options objectAtIndex:OptionTypeNumberOfMonths] value];
+    CGFloat totalMonthly = [monthlyBase floatValue] * [noOfMonths floatValue];
+    return totalMonthly;
+}
+
+- (CGFloat)_totalHourly;
+{
+    NSString *hours = [(Option *)[_options objectAtIndex:OptionTypeHours] value];
+    NSString *hourRate = [(Option *)[_options objectAtIndex:OptionTypeHourlyRate] value];
+    CGFloat totalHourly = [hours floatValue] * [hourRate floatValue];
+    return totalHourly;
 }
 
 - (NSString *)description;
