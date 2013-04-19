@@ -106,7 +106,7 @@
 - (IBAction)whatsInMyPocket:(UIButton *)sender;
 {
     NSDictionary *result = [[DataManager sharedManager] whatsInMyPocket];
-    NSString *text = (nil != result) ? [NSString stringWithFormat:@"%@", [result objectForKey:@"Total"]] : @"?";
+    NSString *text = (nil != result) ? [NSString stringWithFormat:@"$%@", [result objectForKey:@"Total"]] : @"?";
     self.resultLabel.text = text;
 }
 

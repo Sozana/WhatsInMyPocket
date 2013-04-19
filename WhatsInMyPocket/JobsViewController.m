@@ -20,6 +20,7 @@
 }
 @end
 
+
 @implementation JobsViewController
 
 - (void)viewDidLoad
@@ -37,19 +38,24 @@
 
 - (IBAction)addJob:(UIBarButtonItem *)sender;
 {
-    UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Job Name"
-                                                      message:nil
-                                                     delegate:self
-                                            cancelButtonTitle:@"Cancel"
-                                            otherButtonTitles:@"Add", nil];
+    [self _addJobWithMessage:nil];
+}
+
+- (void)_addJobWithMessage:(NSString *)message;
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Job Name"
+                                                    message:message
+                                                   delegate:self
+                                          cancelButtonTitle:@"Cancel"
+                                          otherButtonTitles:@"Add", nil];
+    [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
     
-    [message setAlertViewStyle:UIAlertViewStylePlainTextInput];
-    
-    [message show];
+    [alert show];
 }
 
 - (BOOL)alertViewShouldEnableFirstOtherButton:(UIAlertView *)alertView
 {
+
     NSString *name = [[alertView textFieldAtIndex:0] text];
     if( [name length] >= 3 ){
         return YES;
@@ -69,12 +75,10 @@
 {
     Job *job = [[DataManager sharedManager] addJobNamed:name];
     if (nil == job) {
-        // alert error
-        NSLog(@"Job exists" );
+        [self _addJobWithMessage:[NSString stringWithFormat:@"An error occured!\nA job named \"%@\" already exists", name]];
     }else{
         self.tableView.tableHeaderView = nil;
         [_jobs insertObject:job atIndex:0];
-        NSLog(@"_jobs %@", _jobs);
         [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
                       withRowAnimation:UITableViewRowAnimationTop];
         [self _setSelectedJob:job];
@@ -237,24 +241,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 
 #pragma mark - TextFieldDelegate
 
-
-//- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;        // return NO to disallow editing.
-//- (void)textFieldDidBeginEditing:(UITextField *)textField;           // became first responder
-//- (BOOL)textFieldShouldEndEditing:(UITextField *)textField;          // return YES to allow editing to stop and to resign first responder status. NO to disallow the editing session to end
-//{
-//    [textField resignFirstResponder];
-//    return YES;
-//}
-//
-//- (void)textFieldDidEndEditing:(UITextField *)textField;             // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
-//{
-//
-//}
-//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
-//
-//- (BOOL)textFieldShouldClear:(UITextField *)textField;               // called when clear button pressed. return NO to ignore (no notifications)
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField;              // called when 'return' key pressed. return NO to ignore.
+- (BOOL)textFieldShouldReturn:(UITextField *)textField; 
 {
     [textField resignFirstResponder];
     return YES;
