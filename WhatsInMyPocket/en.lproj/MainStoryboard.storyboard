@@ -196,7 +196,7 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="textColor" red="0.34470663265306123" green="0.34470663265306123" blue="0.34470663265306123" alpha="1" colorSpace="calibratedRGB"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="done"/>
                                             <connections>
                                                 <outlet property="delegate" destination="pJx-1O-jQj" id="Rb5-CY-wWz"/>
                                             </connections>
@@ -361,6 +361,66 @@
         <image name="PlusImage.png" width="23" height="20"/>
         <image name="WhatsInMyPocketTitle.png" width="76" height="30"/>
     </resources>
+    <classes>
+        <class className="AddJobTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddJobTableCell.h"/>
+        </class>
+        <class className="CalculateTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CalculateTableViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="showJobs:"/>
+                <relationship kind="action" name="showSelection:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="whatsInMyPocket:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="noJobsView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="optionsViewController" candidateClass="OptionsViewController"/>
+                <relationship kind="outlet" name="resultLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="IIViewDeckController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/IIViewDeckController.h"/>
+        </class>
+        <class className="InitialViewController" superclassName="IIViewDeckController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/InitialViewController.h"/>
+        </class>
+        <class className="JobSelectionTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobSelectionTableCell.h"/>
+        </class>
+        <class className="JobTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="indicatorImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="JobsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JobsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="addJob:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="delegate"/>
+                <relationship kind="outlet" name="noJobsView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="OptionInputCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionInputCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="inputField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="OptionTableCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionTableCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="checkMark" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="label" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="OptionsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OptionsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

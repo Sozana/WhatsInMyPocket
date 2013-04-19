@@ -48,7 +48,7 @@
     _selectedJobs = [NSMutableArray arrayWithCapacity:[_jobs count]];
     NSLog(@"_jobs %@", _jobs);
     
-    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background"]];
+    self.tableView.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background"]];
     
     [[DataManager sharedManager] save];
     
