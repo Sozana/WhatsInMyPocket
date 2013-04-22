@@ -51,7 +51,7 @@
     if (nil == [dm username]) {
         [self _showEntryView];
     }else{
-        [self performSelector:@selector(_start) withObject:nil afterDelay:1];
+        [self performSelector:@selector(_start) withObject:nil afterDelay:3];
     }
     
 }

@@ -57,38 +57,16 @@
 - (BOOL)hasRequiredEntries;
 {
     BOOL hasEntries = YES;
-    for (Option *o in _options) {
-        NSLog(@"%@ %@", o.name, o.value);
-        
-        if (o.type < OptionTypeCount && nil == o.value) {
-            hasEntries = NO;
-            break;
-        }
-    }
+//    for (Option *o in _options) {
+//        NSLog(@"%@ %@", o.name, o.value);
+//        
+//        if (o.type < OptionTypeCount && nil == o.value) {
+//            hasEntries = NO;
+//            break;
+//        }
+//    }
     return hasEntries;
 }
-/*
- 
- OptionTypeMonthlyBase,
- OptionTypeNumberOfMonths,
- 
- 
- OptionTypeHours,
- OptionTypeHourlyRate,
- 
-
- OptionTypeYearlySalary,
- 
- 
- OptionTypeTotalWholeSale,
- OptionTypePercentage,
- 
- OptionTypeAfterTax,
- OptionTypeBeforeTax,
- OptionTypeTaxReturn,
- 
- */
-
 
 - (NSNumber *)calculate;
 {
@@ -101,12 +79,31 @@
     NSString *totalWholeSale = [(Option *)[_options objectAtIndex:OptionTypeTotalWholeSale] value];
     NSString *percentage = [(Option *)[_options objectAtIndex:OptionTypePercentage] value];
     
+    CGFloat wholeSaleTotal = ([totalWholeSale floatValue] / 100) * [percentage floatValue];
+    
+    
     NSString *yearSalary = [(Option *)[_options objectAtIndex:OptionTypeYearlySalary] value];
-    NSString *afterTax = [(Option *)[_options objectAtIndex:OptionTypeAfterTax] value];
-    NSString *beforeTax = [(Option *)[_options objectAtIndex:OptionTypeBeforeTax] value];
+    NSString *noOfYears = [(Option *)[_options objectAtIndex:OptionTypeNumberOfYears] value];
+    
+    CGFloat yearly = [yearSalary floatValue] * [noOfYears integerValue];
+    
+//    NSString *afterTax = [(Option *)[_options objectAtIndex:OptionTypeAfterTax] value];
+//    NSString *beforeTax = [(Option *)[_options objectAtIndex:OptionTypeBeforeTax] value];
     NSString *taxReturn = [(Option *)[_options objectAtIndex:OptionTypeTaxReturn] value];
     
-    return [NSNumber numberWithFloat:totalMonthly];
+    CGFloat tax = [taxReturn floatValue];
+    
+    NSString *expenses = [(Option *)[_options objectAtIndex:OptionTypeExpenses] value];
+    
+    CGFloat expense = [expenses floatValue];
+    
+    NSString *addedIncome = [(Option *)[_options objectAtIndex:OptionTypeAdditionalIncome] value];
+    CGFloat added = [addedIncome floatValue];
+    
+    CGFloat resultVal = totalMonthly + totalHourly + wholeSaleTotal + yearly + tax + added - expense;
+    
+    result = [NSNumber numberWithFloat:resultVal];
+    return result;
 }
 
 - (CGFloat)_totalMonthly;

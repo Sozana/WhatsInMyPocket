@@ -12,6 +12,7 @@
 #import "Option.h"
 #import "JobTableCell.h"
 #import "OptionInputCell.h"
+#import "TotalsTableCell.h"
 
 @interface JobsViewController ()
 {
@@ -101,7 +102,7 @@
     NSLog(@"%@", job.options);
     
     if (job.isSelected) {
-        rows = [job.options count] + 1;
+        rows = [job.options count] + 2;
     }
     return rows;
 
@@ -116,11 +117,20 @@
         Job *job = [_jobs objectAtIndex:indexPath.section];
         [(JobTableCell *)cell setJob:job];
     }else{
-        cell = (OptionInputCell *)[tableView dequeueReusableCellWithIdentifier:@"OptionInputCell" forIndexPath:indexPath];
         Job *job = [_jobs objectAtIndex:indexPath.section];
-        NSLog(@"jobOptions %@", job.options);
-        Option *option = [job.options objectAtIndex:indexPath.row-1];
-        [(OptionInputCell *)cell setOption:option];
+        if (indexPath.row == [job.options count] + 1) {
+            TotalsTableCell *totCell = (TotalsTableCell *)[tableView dequeueReusableCellWithIdentifier:@"TotalsTableCell" forIndexPath:indexPath];
+            totCell.backgroundColor = [UIColor orangeColor];
+            totCell.job = job;
+            [totCell calculateForLabelText];
+            cell = totCell;
+            
+        }else{
+            cell = (OptionInputCell *)[tableView dequeueReusableCellWithIdentifier:@"OptionInputCell" forIndexPath:indexPath];
+            NSLog(@"jobOptions %@", job.options);
+            Option *option = [job.options objectAtIndex:indexPath.row-1];
+            [(OptionInputCell *)cell setOption:option];
+        }
     }
 
     return cell;
@@ -136,6 +146,33 @@
     }
     return height;
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;
+//{
+//    CGFloat height = 0.0f;
+//    Job *currentJob = [_jobs objectAtIndex:section];
+//    if (currentJob.isSelected) {
+//        height = 50.0f;
+//    }
+//    
+//    return height;
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;
+//{
+//    CGFloat height = 0.0f;
+//    TotalsFooterView *view = nil;
+//    Job *currentJob = [_jobs objectAtIndex:section];
+//    if (currentJob.isSelected) {
+//        height = 50.0f;
+//        view = [[TotalsFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
+//        _footerView = view;
+//    }
+//    
+//    return view;
+//    
+//}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     CGFloat height = 40.0;
@@ -186,7 +223,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     NSLog(@"indexPath %@", indexPath);
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self _deleteJobAtIndexPath:indexPath];
-        
     }
 }
 
@@ -213,11 +249,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
 - (void)_setSelectedJob:(Job *)job;
 {
     int count = [_jobs count];
+    
     for (int i=0; i<count; i++){
         Job *currentJob = [_jobs objectAtIndex:i];
         
         int cnt = [currentJob.options count];
-        NSArray *ips = [self _indexPathsWithCount:cnt forSection:i];
+        NSArray *ips = [self _indexPathsWithCount:cnt+1 forSection:i];
         if (currentJob.isSelected) {
             [currentJob toggleSelected];
             [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationTop];
@@ -228,12 +265,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         }
     }
 }
+
 - (NSArray *)_indexPathsWithCount:(NSInteger)cnt forSection:(NSInteger)section;
 {
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:cnt];
     for (int i=1; i<=cnt; i++) {
         NSIndexPath *ip = [NSIndexPath indexPathForRow:i inSection:section];
-        NSLog(@"ip %@", ip);
         [arr addObject:ip];
     }
     return arr;

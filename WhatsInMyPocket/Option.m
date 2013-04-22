@@ -48,11 +48,11 @@
             selector = @"MonthlyBase";
             break;
         case OptionTypeNumberOfMonths:
-            name = @"Number of Months";
+            name = @"# of Months";
             selector = @"NumberOfMonths";
             break;
         case OptionTypeHours:
-            name = @"Hours";
+            name = @"# of Hours";
             selector = @"Hours";
             break;
         case OptionTypeHourlyRate:
@@ -72,19 +72,31 @@
             name = @"Yearly Salary";
             selector = @"YearlySalary";
             break;
-        case OptionTypeAfterTax:
-            name = @"After Tax";
-            selector = @"AfterTax";
+        case OptionTypeNumberOfYears:
+            name = @"# of Years";
+            selector = @"NumberOfYears";
             break;
-        case OptionTypeBeforeTax:
-            name = @"Before Tax";
-            selector = @"BeforeTax";
-            break;
+            
+//        case OptionTypeAfterTax:
+//            name = @"After Tax";
+//            selector = @"AfterTax";
+//            break;
+//        case OptionTypeBeforeTax:
+//            name = @"Before Tax";
+//            selector = @"BeforeTax";
+//            break;
         case OptionTypeTaxReturn:
             name = @"Tax Return";
             selector = @"TaxReturn";
             break;
-            
+        case OptionTypeExpenses:
+            name = @"Expenses";
+            selector = @"Expenses";
+            break;
+        case OptionTypeAdditionalIncome:
+            name = @"Additional Income";
+            selector = @"AdditionalIncome";
+            break;
         default:
             break;
     }
@@ -160,17 +172,17 @@
 
 - (BOOL)_validateNumberOfMonthsWithString:(NSString *)string
 {
-    return [self _validateNumericString:string withMinVaue:0 maxValue:12];
+    return [self _validateNumericString:string withMinVaue:0 maxValue:1000];
 }
 
 - (BOOL)_validateHoursWithString:(NSString *)string
 {
-    return [self _validateNumericString:string withMinVaue:0 maxValue:24];
+    return [self _validateNumericString:string withMinVaue:0 maxValue:1000];
 }
 
 - (BOOL)_validateHourlyRateWithString:(NSString *)string
 {
-    return [self _validateNumericString:string withMinVaue:0 maxValue:5000];
+    return [self _validateNumericString:string withMinVaue:0 maxValue:10000];
 }
 
 - (BOOL)_validatePercentageWithString:(NSString *)string

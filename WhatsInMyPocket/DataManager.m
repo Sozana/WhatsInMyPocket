@@ -103,6 +103,8 @@ NSString *const kDataKey_Options = @"Options";
     NSMutableArray *incomplete = [NSMutableArray array];
     BOOL isIncomplete = NO;
     for (Job *j in _allJobs) {
+        NSLog(@"job %@", j.name);
+        
         if (j.includeInCalculation) {
             if (NO == [j hasRequiredEntries]) {
                 [incomplete addObject:j.name];
@@ -111,6 +113,7 @@ NSString *const kDataKey_Options = @"Options";
             }
             NSNumber *num = [j calculate];
             NSDictionary *currentResult = @{@"Result" : num, @"JobName" : j.name};
+            NSLog(@"currentResult %@", currentResult);
             [arr addObject:currentResult];
             result += [num floatValue];
         }
@@ -233,6 +236,8 @@ NSString *const kDataKey_Options = @"Options";
     NSDictionary *data = @{kDataKey_Jobs : _allJobs, kDataKey_Options : _allOptions};
     NSLog(@"_saveData %@", data);
     [NSKeyedArchiver archiveRootObject:data toFile:[self _dataFilePath]];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDataManagerDidSaveNotification object:nil];
+    
 }
 
 @end

@@ -19,6 +19,7 @@
 		679F4E8316D9C17100E91BFF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */; };
 		679F4E8E16D9C44300E91BFF /* CalculateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */; };
 		679F4E9116D9C57200E91BFF /* OptionInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E9016D9C57200E91BFF /* OptionInputCell.m */; };
+		CD5C148917251478003F42E9 /* TotalsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5C148817251478003F42E9 /* TotalsTableCell.m */; };
 		CDA331DC171D12EC00908521 /* UIDevice+WIMP.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA331DB171D12EC00908521 /* UIDevice+WIMP.m */; };
 		CDA331DF171D194E00908521 /* PocketImageSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA331DD171D194E00908521 /* PocketImageSmall.png */; };
 		CDA331E0171D194E00908521 /* PocketImageSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA331DE171D194E00908521 /* PocketImageSmall@2x.png */; };
@@ -86,6 +87,8 @@
 		679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateTableViewController.m; sourceTree = "<group>"; };
 		679F4E8F16D9C57200E91BFF /* OptionInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionInputCell.h; sourceTree = "<group>"; };
 		679F4E9016D9C57200E91BFF /* OptionInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionInputCell.m; sourceTree = "<group>"; };
+		CD5C148717251478003F42E9 /* TotalsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TotalsTableCell.h; path = Assets/TotalsTableCell.h; sourceTree = "<group>"; };
+		CD5C148817251478003F42E9 /* TotalsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TotalsTableCell.m; path = Assets/TotalsTableCell.m; sourceTree = "<group>"; };
 		CDA331DA171D12EC00908521 /* UIDevice+WIMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+WIMP.h"; sourceTree = "<group>"; };
 		CDA331DB171D12EC00908521 /* UIDevice+WIMP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+WIMP.m"; sourceTree = "<group>"; };
 		CDA331DD171D194E00908521 /* PocketImageSmall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PocketImageSmall.png; sourceTree = "<group>"; };
@@ -289,6 +292,8 @@
 				CDEDCA5716FECC2400262DBC /* JobTableCell.m */,
 				CDEDCA781700402B00262DBC /* AddJobTableCell.h */,
 				CDEDCA791700402B00262DBC /* AddJobTableCell.m */,
+				CD5C148717251478003F42E9 /* TotalsTableCell.h */,
+				CD5C148817251478003F42E9 /* TotalsTableCell.m */,
 			);
 			name = TableCells;
 			sourceTree = "<group>";
@@ -464,6 +469,7 @@
 				CDEB4C96170AAC3B00893B67 /* SplashViewController.m in Sources */,
 				CDA331DC171D12EC00908521 /* UIDevice+WIMP.m in Sources */,
 				CDA331E3171D1DF800908521 /* NSUserDefaults+WIMP.m in Sources */,
+				CD5C148917251478003F42E9 /* TotalsTableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

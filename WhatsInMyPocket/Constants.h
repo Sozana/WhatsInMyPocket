@@ -10,5 +10,6 @@
 
 
 extern NSString *const kJobsUpdatedNotification;
+extern NSString *const kDataManagerDidSaveNotification;
 extern NSString *const kNotificationKey_JobAdded;
 extern NSString *const kNotificationKey_JobDeleted;

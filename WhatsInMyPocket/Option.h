@@ -16,10 +16,15 @@ typedef enum {
     OptionTypeTotalWholeSale,
     OptionTypePercentage,
     OptionTypeYearlySalary,
-    OptionTypeAfterTax,
-    OptionTypeBeforeTax,
+    OptionTypeNumberOfYears,
+    //OptionTypeAfterTax,
+    //OptionTypeBeforeTax,
     OptionTypeTaxReturn,
+    OptionTypeExpenses,
+    OptionTypeAdditionalIncome,
+    
     OptionTypeCount,
+    
 } OptionType;
 
 @interface Option : NSObject  <NSCoding>

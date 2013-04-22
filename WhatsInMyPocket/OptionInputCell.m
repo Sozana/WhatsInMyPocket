@@ -44,10 +44,8 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string;   // return NO to not change text
 {
-    NSLog(@"%@", string);
 
     string = [NSString stringWithFormat:@"%@%@", textField.text, string];
-    NSLog(@"%@", string);
     
     BOOL val = [_option setValueWithString:string];
     if (val) {

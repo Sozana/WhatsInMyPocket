@@ -9,6 +9,7 @@
 #import "Constants.h"
 
 NSString *const kJobsUpdatedNotification = @"JobsChangedNotification";
+NSString *const kDataManagerDidSaveNotification = @"DataManagerDidSaveNotification";
 
 NSString *const kNotificationKey_JobAdded = @"JobAdded";
 NSString *const kNotificationKey_JobDeleted = @"JobDeleted";

@@ -23,6 +23,5 @@
 @protocol JobsViewControllerDelegate <NSObject>
 
 
-- (void)bababoi;
 
 @end
