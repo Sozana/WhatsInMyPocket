@@ -47,8 +47,6 @@ NSString *const kDataKey_Options = @"Options";
 - (id)init;
 {
     if (self = [super init]) {
-//        [self _loadOptions];
-//        [self _loadJobs];
         [self _loadData];
         if ([_allJobs count]) {
             self.currentJob = [_allJobs objectAtIndex:0];
@@ -71,22 +69,17 @@ NSString *const kDataKey_Options = @"Options";
 
 - (NSArray *)_options;
 {
-
-    
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:OptionTypeCount];
     for (int i=0; i<OptionTypeCount; i++) {
         Option *o = [Option optionWithType:i];
         [arr insertObject:o atIndex:i];
     }
-
-    NSLog(@"%@", arr);
     return arr;
 }
 
 - (NSArray *)_jobs;
 {
     NSArray *dummyJobs = @[@"Apple", @"CBS", @"Ikea"];
-    //NSArray *dummyJobs = @[];
     NSMutableArray *arr = [NSMutableArray arrayWithCapacity:[dummyJobs count]];
     for (NSString *name in dummyJobs) {
         Job *job = [[Job alloc] initWithName:name];
@@ -103,7 +96,6 @@ NSString *const kDataKey_Options = @"Options";
     NSMutableArray *incomplete = [NSMutableArray array];
     BOOL isIncomplete = NO;
     for (Job *j in _allJobs) {
-        NSLog(@"job %@", j.name);
         
         if (j.includeInCalculation) {
             if (NO == [j hasRequiredEntries]) {
@@ -113,7 +105,6 @@ NSString *const kDataKey_Options = @"Options";
             }
             NSNumber *num = [j calculate];
             NSDictionary *currentResult = @{@"Result" : num, @"JobName" : j.name};
-            NSLog(@"currentResult %@", currentResult);
             [arr addObject:currentResult];
             result += [num floatValue];
         }
@@ -136,7 +127,6 @@ NSString *const kDataKey_Options = @"Options";
 - (void)_alertForIncompleteJobEntriesInJobs:(NSArray *)jobs;
 {
     NSString *str = [jobs componentsJoinedByString:@", "];
-//    str = [str substringToIndex:[str length] - 2];
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Incomplete Jobs"
                                                     message:[NSString stringWithFormat:@"Required values missing for: %@", str]
                                                    delegate:nil
@@ -145,16 +135,8 @@ NSString *const kDataKey_Options = @"Options";
     [alert show];
 }
 
-//- (Job *)currentJob;
-//{
-//    Job *job = [[Job alloc] init];
-//    job.options = [self options];
-//    job.name = @"Default Job";
-//    return job;
-//}
 - (Job *)addJobNamed:(NSString *)name;
 {
-    NSLog(@"_allJobs %@", _allJobs);
     for (Job *job in _allJobs){
         if ([job.name isEqualToString:name]) {
             return nil;
@@ -167,22 +149,15 @@ NSString *const kDataKey_Options = @"Options";
     _allJobs = arr;
     NSDictionary *change = @{kNotificationKey_JobAdded : job};
     [[NSNotificationCenter defaultCenter] postNotificationName:kJobsUpdatedNotification object:change];
-    [self save];
-    NSLog(@"%@", job);
-    
+    [self save];    
     return job;
 }
 
-
-
 - (void)deleteJob:(Job *)job;
-{
-    NSLog(@"job %@", job);
-    
+{    
     NSMutableArray *arr = [_allJobs mutableCopy];
     [arr removeObjectIdenticalTo:job];
     _allJobs = arr;
-    NSLog(@"deleteJob %@", _allJobs);
     NSDictionary *change = @{kNotificationKey_JobDeleted : job};
     [[NSNotificationCenter defaultCenter] postNotificationName:kJobsUpdatedNotification object:change];
     [self save];
@@ -190,16 +165,12 @@ NSString *const kDataKey_Options = @"Options";
 
 - (NSArray *)options;
 {
-    NSLog(@"%@", _allOptions);
-    
+
     return _allOptions;
 }
 
 - (NSArray *)jobs;
 {
-    // name
-    // options
-    
     return _allJobs;
 }
 
@@ -225,7 +196,6 @@ NSString *const kDataKey_Options = @"Options";
         _allJobs = [data objectForKey:kDataKey_Jobs];
         _allOptions = [data objectForKey:kDataKey_Options];
     }
-    NSLog(@"data %@", data);
 }
 
 - (void)_saveData;
@@ -234,10 +204,8 @@ NSString *const kDataKey_Options = @"Options";
         return;
     }
     NSDictionary *data = @{kDataKey_Jobs : _allJobs, kDataKey_Options : _allOptions};
-    NSLog(@"_saveData %@", data);
     [NSKeyedArchiver archiveRootObject:data toFile:[self _dataFilePath]];
     [[NSNotificationCenter defaultCenter] postNotificationName:kDataManagerDidSaveNotification object:nil];
-    
 }
 
 @end

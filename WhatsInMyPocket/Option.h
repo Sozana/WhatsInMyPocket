@@ -34,6 +34,7 @@ typedef enum {
 @property (nonatomic, readonly) NSString *value;
 @property OptionType type;
 @property (nonatomic, strong) NSString *validationSelectorString;
+@property (nonatomic, strong) UIColor *color;
 
 + (Option *)optionWithType:(OptionType)type;
 - (id)initWithName:(NSString *)name;

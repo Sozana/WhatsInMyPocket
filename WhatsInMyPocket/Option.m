@@ -16,65 +16,52 @@
 @end
 @implementation Option
 
-
-/*
- NSCharacterSet * set = [[NSCharacterSet characterSetWithCharactersInString:@"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ0123456789"] invertedSet];
- 
- if ([aString rangeOfCharacterFromSet:set].location != NSNotFound) {
- NSLog(@"This string contains illegal characters");
- }
- NSArray *opts = @[
- //                         @"Job Name",
- //              @"Date",
- @"Monthly Base",
- @"Number of Months",
- @"Hours",
- @"Hoerly Rate",
- @"Total Wholesale",
- @"Percentage",
- @"Yearly Salary",
- @"After Tax",
- @"Before Tax",
- @"Tax Return"];
- */
-
 + (Option *)optionWithType:(OptionType)type;
 {
     NSString *name = nil;
     NSString *selector = nil;
+    UIColor *color = nil;
     switch (type) {
         case OptionTypeMonthlyBase:
             name = @"Monthly Base";
             selector = @"MonthlyBase";
+            color = [UIColor lightGrayColor];
             break;
         case OptionTypeNumberOfMonths:
             name = @"# of Months";
             selector = @"NumberOfMonths";
+            color = [UIColor lightGrayColor];
             break;
         case OptionTypeHours:
             name = @"# of Hours";
             selector = @"Hours";
+            color = [UIColor grayColor];
             break;
         case OptionTypeHourlyRate:
             name = @"Hourly Rate";
             selector = @"HourlyRate";
+            color = [UIColor grayColor];
             break;
         case OptionTypeTotalWholeSale:
             name = @"Total Wholesale";
             selector = @"TotalWholesale";
+            color = [UIColor lightGrayColor];
             break;
         case OptionTypePercentage:
             name = @"Percentage";
             selector = @"Percentage";
+            color = [UIColor lightGrayColor];
             
             break;
         case OptionTypeYearlySalary:
             name = @"Yearly Salary";
             selector = @"YearlySalary";
+            color = [UIColor grayColor];
             break;
         case OptionTypeNumberOfYears:
             name = @"# of Years";
             selector = @"NumberOfYears";
+            color = [UIColor grayColor];
             break;
             
 //        case OptionTypeAfterTax:
@@ -103,6 +90,7 @@
     Option *option = [[Option alloc] initWithName:name];
     option.type = type;
     option.name = name;
+    option.color = color;
     option.validationSelectorString = [NSString stringWithFormat:@"_validate%@WithString:", selector];
     return option;
 }
@@ -140,7 +128,6 @@
 
 - (BOOL)setValueWithString:(NSString *)string;
 {
-    NSLog(@"_validationSelectorString %@", _validationSelectorString);
     BOOL isValid = YES;
     SEL selector = NSSelectorFromString(_validationSelectorString);
     if ([self respondsToSelector:selector]) {
