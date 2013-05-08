@@ -75,7 +75,7 @@
 
 - (IBAction)start:(UIButton *)sender;
 {
-    if (_nameField.text.length < 3) {
+    if (_nameField.text.length < 2) {
         _usernameLabel.font = [UIFont boldSystemFontOfSize:15];
         _usernameLabel.textColor = [UIColor redColor];
         _usernameLabel.text = @"Please enter your name";

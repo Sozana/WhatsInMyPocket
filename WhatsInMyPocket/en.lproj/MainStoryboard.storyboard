@@ -115,6 +115,11 @@
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="DWy-Rm-5lU">
+                            <connections>
+                                <segue destination="Ws6-my-hgi" kind="modal" id="3O6-Gk-5RA"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="noJobsView" destination="snR-g4-dqK" id="Yxg-H1-2Yq"/>
@@ -190,8 +195,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" id="wBB-Xb-6Jq">
-                                            <rect key="frame" x="174" y="4" width="75" height="28"/>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="wBB-Xb-6Jq">
+                                            <rect key="frame" x="174" y="4" width="75" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="textColor" red="0.34470663265306123" green="0.34470663265306123" blue="0.34470663265306123" alpha="1" colorSpace="calibratedRGB"/>
@@ -363,6 +368,96 @@
             <point key="canvasLocation" x="1138" y="721"/>
         </scene>
         <!--Navigation Controller-->
+        <scene sceneID="Tmf-wJ-8eT">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="Ws6-my-hgi" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="pvU-sb-5Yy">
+                        <rect key="frame" x="0.0" y="-44" width="0.0" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZvP-29-8CY" kind="relationship" relationship="rootViewController" id="rSu-IL-Rgo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uHz-8g-REs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1415" y="-234"/>
+        </scene>
+        <!--Edit View Controller-->
+        <scene sceneID="ZEO-8v-JdM">
+            <objects>
+                <viewController id="ZvP-29-8CY" customClass="EditViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aPd-Wt-BqG">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="Background.png" id="oL7-R7-prt">
+                                <rect key="frame" x="0.0" y="-1" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" id="WjZ-cW-CNJ">
+                                <rect key="frame" x="0.0" y="20" width="320" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" minimumFontSize="17" id="goJ-JN-sNl">
+                                        <rect key="frame" x="25" y="49" width="270" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.81359614160000004" green="0.76538700159999995" blue="0.67459880490000002" alpha="0.5" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.34470663270000002" green="0.34470663270000002" blue="0.34470663270000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R28-U2-sNl">
+                                        <rect key="frame" x="25" y="20" width="270" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="WhatsInMyPocketCopyText.png" id="swA-m7-V8z">
+                                <rect key="frame" x="56" y="380" width="204" height="15"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="PocketImageSmall.png" id="JfU-RR-1e4">
+                                <rect key="frame" x="33" y="125" width="250" height="247"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aOs-9F-xpM">
+                        <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Done" style="done" id="5Em-ee-avH">
+                            <connections>
+                                <action selector="done:" destination="ZvP-29-8CY" id="zJi-gt-GgY"/>
+                            </connections>
+                        </barButtonItem>
+                        <view key="titleView" contentMode="scaleToFill" id="Tkh-EG-7vx">
+                            <rect key="frame" x="96" y="6" width="128" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="WhatsInMyPocketTitle.png" id="9Lk-Oq-TaN">
+                                    <rect key="frame" x="26" y="2" width="76" height="30"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="nameField" destination="goJ-JN-sNl" id="cnj-bY-xxx"/>
+                        <outlet property="usernameLabel" destination="R28-U2-sNl" id="NDf-na-1tF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fTy-FT-6eu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1814" y="-231"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="usM-qj-yi5">
             <objects>
                 <navigationController storyboardIdentifier="OptionsViewController" definesPresentationContext="YES" id="gk9-RY-B49" sceneMemberID="viewController">
@@ -379,8 +474,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Background.png" width="320" height="568"/>
         <image name="CheckMarkChecked.png" width="30" height="26"/>
         <image name="PlusImage.png" width="23" height="20"/>
+        <image name="PocketImageSmall.png" width="250" height="247"/>
+        <image name="WhatsInMyPocketCopyText.png" width="204" height="15"/>
         <image name="WhatsInMyPocketTitle.png" width="76" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

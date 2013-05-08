@@ -18,5 +18,6 @@
 
 - (void)toggleSelected;
 - (void)setJob:(Job *)job;
+- (void)setIsSelected:(BOOL)selected;
 
 @end

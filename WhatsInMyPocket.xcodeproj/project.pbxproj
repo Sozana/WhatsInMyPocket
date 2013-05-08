@@ -19,6 +19,7 @@
 		679F4E8316D9C17100E91BFF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 679F4E8116D9C17100E91BFF /* MainStoryboard.storyboard */; };
 		679F4E8E16D9C44300E91BFF /* CalculateTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */; };
 		679F4E9116D9C57200E91BFF /* OptionInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 679F4E9016D9C57200E91BFF /* OptionInputCell.m */; };
+		CD36261F173A1DCF00FB0DC3 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD36261E173A1DCF00FB0DC3 /* EditViewController.m */; };
 		CD5C148917251478003F42E9 /* TotalsTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CD5C148817251478003F42E9 /* TotalsTableCell.m */; };
 		CDA331DC171D12EC00908521 /* UIDevice+WIMP.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA331DB171D12EC00908521 /* UIDevice+WIMP.m */; };
 		CDA331DF171D194E00908521 /* PocketImageSmall.png in Resources */ = {isa = PBXBuildFile; fileRef = CDA331DD171D194E00908521 /* PocketImageSmall.png */; };
@@ -87,6 +88,8 @@
 		679F4E8D16D9C44300E91BFF /* CalculateTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculateTableViewController.m; sourceTree = "<group>"; };
 		679F4E8F16D9C57200E91BFF /* OptionInputCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionInputCell.h; sourceTree = "<group>"; };
 		679F4E9016D9C57200E91BFF /* OptionInputCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionInputCell.m; sourceTree = "<group>"; };
+		CD36261D173A1DCF00FB0DC3 /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
+		CD36261E173A1DCF00FB0DC3 /* EditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditViewController.m; sourceTree = "<group>"; };
 		CD5C148717251478003F42E9 /* TotalsTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TotalsTableCell.h; path = Assets/TotalsTableCell.h; sourceTree = "<group>"; };
 		CD5C148817251478003F42E9 /* TotalsTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TotalsTableCell.m; path = Assets/TotalsTableCell.m; sourceTree = "<group>"; };
 		CDA331DA171D12EC00908521 /* UIDevice+WIMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+WIMP.h"; sourceTree = "<group>"; };
@@ -308,6 +311,8 @@
 				CDEDCA2716FC48A600262DBC /* OptionsViewController.m */,
 				CDEDCA2B16FC4C3600262DBC /* JobsViewController.h */,
 				CDEDCA2C16FC4C3600262DBC /* JobsViewController.m */,
+				CD36261D173A1DCF00FB0DC3 /* EditViewController.h */,
+				CD36261E173A1DCF00FB0DC3 /* EditViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -470,6 +475,7 @@
 				CDA331DC171D12EC00908521 /* UIDevice+WIMP.m in Sources */,
 				CDA331E3171D1DF800908521 /* NSUserDefaults+WIMP.m in Sources */,
 				CD5C148917251478003F42E9 /* TotalsTableCell.m in Sources */,
+				CD36261F173A1DCF00FB0DC3 /* EditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

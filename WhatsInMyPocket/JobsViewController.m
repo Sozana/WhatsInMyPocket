@@ -83,6 +83,7 @@
         [self.tableView insertSections:[NSIndexSet indexSetWithIndex:0]
                       withRowAnimation:UITableViewRowAnimationTop];
         [self _setSelectedJob:job];
+
     }
 }
 
@@ -197,6 +198,7 @@
     [self _setSelectedJob:job];
 
 
+
 }
 
 // Override to support conditional editing of the table view.
@@ -246,20 +248,34 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
     self.tableView.tableHeaderView = ([_jobs count]) ? nil : _noJobsView;
 }
 
+/*
+ for (int i=0; i<[_jobs count]; i++){
+ Job *currentJob = [_jobs objectAtIndex:i];
+ NSIndexPath *ip = [NSIndexPath indexPathForRow:0 inSection:i];
+ JobTableCell *cell = (JobTableCell *)[tableView cellForRowAtIndexPath:ip];
+ [cell setIsSelected:[currentJob isEqual:job]];
+ 
+ }
+ */
+
 - (void)_setSelectedJob:(Job *)job;
 {
     int count = [_jobs count];
     
     for (int i=0; i<count; i++){
         Job *currentJob = [_jobs objectAtIndex:i];
+        NSIndexPath *ip = [NSIndexPath indexPathForRow:0 inSection:i];
+        JobTableCell *cell = (JobTableCell *)[self.tableView cellForRowAtIndexPath:ip];
         
         int cnt = [currentJob.options count];
         NSArray *ips = [self _indexPathsWithCount:cnt+1 forSection:i];
         if (currentJob.isSelected) {
+            [cell setIsSelected:YES];
             [currentJob toggleSelected];
             [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationTop];
             
         }else if([job isEqual:currentJob] && NO == currentJob.isSelected){
+            [cell setIsSelected:NO];
             [currentJob toggleSelected];
             [self.tableView insertRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationTop];
         }
