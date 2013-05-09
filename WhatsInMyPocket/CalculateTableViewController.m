@@ -56,6 +56,10 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated;
+{
+    [self.tableView reloadData];
+}
 #pragma mark - SplashViewControllerDelegate
 
 - (void)splashViewControllerShouldBeRemoved:(SplashViewController *)vc;
