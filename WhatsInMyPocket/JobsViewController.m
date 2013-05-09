@@ -117,6 +117,8 @@
         cell = (JobTableCell *)[tableView dequeueReusableCellWithIdentifier:@"JobTableCell" forIndexPath:indexPath];
         Job *job = [_jobs objectAtIndex:indexPath.section];
         [(JobTableCell *)cell setJob:job];
+        NSInteger num = [tableView numberOfRowsInSection:indexPath.section];
+        [(JobTableCell *)cell setIsSelected:(num > 1)];
     }else{
         Job *job = [_jobs objectAtIndex:indexPath.section];
         if (indexPath.row == [job.options count] + 1) {
@@ -148,31 +150,6 @@
     return height;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section;
-//{
-//    CGFloat height = 0.0f;
-//    Job *currentJob = [_jobs objectAtIndex:section];
-//    if (currentJob.isSelected) {
-//        height = 50.0f;
-//    }
-//    
-//    return height;
-//}
-//
-//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section;
-//{
-//    CGFloat height = 0.0f;
-//    TotalsFooterView *view = nil;
-//    Job *currentJob = [_jobs objectAtIndex:section];
-//    if (currentJob.isSelected) {
-//        height = 50.0f;
-//        view = [[TotalsFooterView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, 50)];
-//        _footerView = view;
-//    }
-//    
-//    return view;
-//    
-//}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
@@ -222,7 +199,6 @@
 commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
 forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"indexPath %@", indexPath);
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self _deleteJobAtIndexPath:indexPath];
     }
@@ -270,12 +246,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath
         int cnt = [currentJob.options count];
         NSArray *ips = [self _indexPathsWithCount:cnt+1 forSection:i];
         if (currentJob.isSelected) {
-            [cell setIsSelected:YES];
+            [cell setIsSelected:NO];
             [currentJob toggleSelected];
             [self.tableView deleteRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationTop];
             
         }else if([job isEqual:currentJob] && NO == currentJob.isSelected){
-            [cell setIsSelected:NO];
+            [cell setIsSelected:YES];
             [currentJob toggleSelected];
             [self.tableView insertRowsAtIndexPaths:ips withRowAnimation:UITableViewRowAnimationTop];
         }

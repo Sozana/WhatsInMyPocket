@@ -109,6 +109,7 @@
         _ID = [decoder decodeObjectForKey:@"ID"];
         _name = [decoder decodeObjectForKey:@"name"];
         _value = [decoder decodeObjectForKey:@"value"];
+        _color = [decoder decodeObjectForKey:@"color"];
         _type = (OptionType)[decoder decodeIntegerForKey:@"type"];
         _validationSelectorString = [decoder decodeObjectForKey:@"validationSelectorString"];
         
@@ -122,6 +123,7 @@
     [encoder encodeObject:_name forKey:@"name"];
     [encoder encodeObject:_value forKey:@"value"];
     [encoder encodeInteger:_type forKey:@"type"];
+    [encoder encodeObject:_color forKey:@"color"];
     [encoder encodeObject:_validationSelectorString forKey:@"validationSelectorString"];
 
 }

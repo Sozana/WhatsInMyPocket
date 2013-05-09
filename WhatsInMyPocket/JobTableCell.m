@@ -69,8 +69,9 @@
 
 - (void)setIsSelected:(BOOL)selected;
 {
-    NSLog(@"%@ _setSelected %d",self.job.name, selected);
-    NSString *name = (selected) ? @"PlusImage" : @"MinusImage";
+    NSLog(@"%@ _setSelected %d %d",self.job.name, self.job.isSelected, selected);
+    
+    NSString *name = (selected) ? @"MinusImage" : @"PlusImage";
     self.indicatorImage.image = [UIImage imageNamed:name];
 }
 
