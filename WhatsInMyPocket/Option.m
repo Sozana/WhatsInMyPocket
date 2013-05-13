@@ -48,7 +48,7 @@
             color = [UIColor lightGrayColor];
             break;
         case OptionTypePercentage:
-            name = @"Percentage";
+            name = @"Percentage \%";
             selector = @"Percentage";
             color = [UIColor lightGrayColor];
             
